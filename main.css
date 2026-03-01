@@ -1,0 +1,13 @@
+body{
+    background-color: rgba(7, 7, 7, 0.905);
+}
+#div1{
+    background-color: dimgrey;
+}
+.instrument{
+    border-style: solid;
+    border-color:dimgray;
+}
+.instrumentName{
+    color: aliceblue;
+}
