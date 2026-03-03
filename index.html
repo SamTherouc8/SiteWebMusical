@@ -6,31 +6,73 @@
         <link rel="stylesheet" href="main.css">
         <title>Site web musical</title>
     </head>
+
     <body>
-        <div id="div1">
+        <div id="top">
             <h1>Site Web Musical</h1>
-            <h2>    Pratique de doigtés</h2>
+            <h2>Pratique de doigtés</h2>
         </div>
+        
         <hr>
-
-        <div id="saxophoneBox" class="instrument">
-            <p class="instrumentName">Saxophone</p>
-        </div>
         <br>
 
-        <div id="clarinetBox" class="instrument">
-            <p class="instrumentName">Clarinet</p>
-        </div>
-        <br>
+        <div id="allInstruments">
+          <!--First row-->
+            <div id="row1" class="row">
+                <!--Saxophone-->
+                <div id="saxophoneBox" class="instrumentBox">
+                    <!--Name-->
+                    <div id="saxophoneName" class="instrumentName">
+                        <p">Saxophone</p>
+                    </div>
+                    <!--Image-->
+                    <div id="saxophoneImage" class="instrumentImage">
+                        <img src="Images/saxophone.png" alt="Image de saxophone" width="122" height="270">
+                    </div>
+                </div>
 
-        <div id="fluteBox" class="instrument">
-            <p class="instrumentName">Flute</p>
-            <img src="Images/flute.png">
-        </div>
-        <br>
+                <!--Clarinet-->
+                <div id="clarinetBox" class="instrumentBox">
+                    <!--Name-->
+                    <div id="clarinetName" class="instrumentName">
+                        <p>Clarinette</p>
+                    </div>
+                    <!--Image-->
+                    <div id="clarinetImage" class="instrumentImage">
+                        <img src="Images/clarinette.png" alt="Image de clarinette" width="127.8" height="270">
+                    </div>
+                </div>
+           </div>
 
-        <div id="trumpetBox" class="instrument">
-            <p class="instrumentName">Trumpet</p>
+           <br>
+
+          <!--Second row-->
+            <div id="row2" class="row">
+                <!--Flute-->
+                <div id="fluteBox" class="instrumentBox">
+                    <!--Name-->
+                    <div id="fluteImage" class="instrumentName">
+                        <p>Flute traversière</p>
+                    </div>
+                    <!--Image-->
+                    <div id="fluteImage" class="instrumentImage">
+                        <img src="Images/flute.png" alt="Image de flute traversière" width="305.745" height="153">
+                    </div>
+                </div>
+
+                <!--Trumpet-->
+                <div id="trumpetBox" class="instrumentBox">
+                    <!--Name-->
+                    <div id="fluteImage" class="instrumentName">
+                        <p class="instrumentName">Trompette</p>
+                    </div>
+                    <!--Image-->
+                    <div id="trumpetImage" class="instrumentImage">
+                        <img src="Images/trompette.png" alt="Image de trompette" width="305.745" height="93.7618">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </body>

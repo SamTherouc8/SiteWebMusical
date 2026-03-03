@@ -1,13 +1,60 @@
 body{
     background-color: rgba(7, 7, 7, 0.905);
 }
-#div1{
+#top{
     background-color: dimgrey;
 }
-.instrument{
+
+.instrumentBox{
     border-style: solid;
     border-color:dimgray;
+    background-color: rgb(36, 36, 36);
 }
 .instrumentName{
     color: aliceblue;
 }
+
+#instrumentsBox{
+    height: 5vh;
+    background-color: rgb(255, 0, 0);
+}
+
+
+
+
+#row1, #row2{
+    overflow:auto;
+}
+
+
+#saxophoneBox, #fluteBox{
+    float:left;
+    width:49.2%;
+}
+
+#clarinetBox, #trumpetBox{
+    float:right;
+    width:49.2%; 
+}
+
+#saxophoneBox, #clarinetBox{
+    height: 97%;
+}
+
+#fluteBox, #trumpetBox{
+    height: 97%
+}
+
+
+#allInstruments{
+    height: 50%;
+}
+
+#row1{
+    height: 40vh;
+}
+
+#row2{
+    height: 40vh;
+}
+
