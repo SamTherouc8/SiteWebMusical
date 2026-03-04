@@ -1,0 +1,44 @@
+body{
+    background-color: rgba(7, 7, 7, 0.905);
+}
+
+#top{
+    background-color: dimgrey;
+    text-align: center;
+}
+
+#title1{
+    font-size: 130%;
+}
+
+#title2{
+    font-size: 120%;
+}
+
+.practiceOption{
+    border-style: solid;
+    border-color: dimgray;
+    border-radius: 50px;
+    background-color: rgb(36, 36, 36);
+    height: 30vh;
+}
+
+.optionTitle{
+    text-align: center;
+    font-size: 200%;
+    color: rgb(255, 204, 0);
+}
+
+.buttonDiv{
+    text-align: center;
+}
+
+.optionButton{
+    background-color:gold;
+}
+
+
+#buttonText{
+    font-size: large;
+    color:teal;
+}

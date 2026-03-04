@@ -4,13 +4,12 @@ body{
 
 #top{
     background-color: dimgrey;
-    text-align:center;
+    text-align: center;
 }
 
 #title1{
     font-size: 130%;
 }
-
 
 #title2{
     font-size: 120%;
@@ -18,7 +17,7 @@ body{
 
 .instrumentBox{
     border-style: solid;
-    border-color:dimgray;
+    border-color: dimgray;
     border-radius: 50px;
     background-color: rgb(36, 36, 36);
 
@@ -26,7 +25,7 @@ body{
 
 .instrumentName{
     color: aliceblue;
-    text-align:center;
+    text-align: center;
     font-size: 180%;
 }
 
@@ -38,26 +37,26 @@ body{
 }
 
 .clickButton{
-    text-align:center;
+    text-align: center;
     font-size: 150%;
 }
 
 
 
 #row1, #row2{
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
 
 #saxophoneBox, #fluteBox{
-    float:left;
-    width:49.2%;
+    float: left;
+    width: 49.2%;
 }
 
 #clarinetBox, #trumpetBox{
-    float:right;
-    width:49.2%; 
+    float: right;
+    width: 49.2%; 
 }
 
 #saxophoneBox, #clarinetBox{
@@ -67,6 +66,4 @@ body{
 #fluteBox, #trumpetBox{
     height: 97%
 }
-
-
 
