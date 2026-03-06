@@ -1,0 +1,49 @@
+body{
+    background-color: rgba(7, 7, 7, 0.905);
+}
+
+#top{
+    background-color: dimgrey;
+    text-align: center;
+}
+
+#title1{
+    font-size: 130%;
+}
+
+#title2{
+    font-size: 120%;
+}
+
+#start-button-div{
+    text-align: center;
+}
+
+#start-button{
+    height:11vh;
+    width: 16vw;
+    background-color: rgb(99, 99, 99);
+    border-radius: 13px;
+    font-size:x-large;
+}
+
+#main-container{
+    display: none;
+}
+
+#saxophone-container{
+    position: absolute;
+    background-color: blue;
+    height: 70vh;
+    width: 16vw;
+    top: 25vh;
+    left: 10vw;
+    overflow: hidden;
+    display: none;
+}
+
+#saxophone-image{
+    position: relative;
+    left: 2%;
+    top: 0.6%;
+}

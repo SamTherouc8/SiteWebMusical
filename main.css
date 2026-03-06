@@ -15,6 +15,10 @@ body{
     font-size: 120%;
 }
 
+#home-button{
+    text-align: left;
+}
+
 .instrumentBox{
     border-style: solid;
     border-color: dimgray;
