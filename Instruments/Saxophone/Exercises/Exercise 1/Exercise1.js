@@ -8,8 +8,8 @@ document.getElementById(`start-button`).onclick = function(){
     document.getElementById(`saxophone-container`).style.display = `inline`
     document.getElementById(`start-button-div`).style.display = `none`
 
-    let status = true;
-    while(status === true){
-        
-    }
+    //let status = true;
+    //while(status === true){
+    //    
+    //}
 }

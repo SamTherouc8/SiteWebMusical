@@ -28,22 +28,31 @@ body{
 }
 
 #main-container{
-    display: none;
+    display: inline;
 }
 
 #saxophone-container{
     position: absolute;
     background-color: blue;
-    height: 70vh;
-    width: 16vw;
-    top: 25vh;
-    left: 10vw;
+    height: 540px;
+    width:268px;
+    top: 175px;
+    left: 400px;
     overflow: hidden;
-    display: none;
+    display: inline;
 }
 
 #saxophone-image{
     position: relative;
-    left: 2%;
-    top: 0.6%;
+    left: 17px;
+    top: 19px;
+}
+
+#key1{
+    background-color:aqua;
+    position: relative;
+    width: 18.5px;
+    height: 18px;
+    left: 97px;
+    top: -317px;
 }
