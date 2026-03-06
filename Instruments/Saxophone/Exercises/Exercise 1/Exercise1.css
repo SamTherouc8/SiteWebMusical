@@ -28,7 +28,7 @@ body{
 }
 
 #main-container{
-    display: inline;
+    display: none;
 }
 
 #saxophone-container{
@@ -36,10 +36,10 @@ body{
     background-color: blue;
     height: 540px;
     width:268px;
-    top: 175px;
+    top: 200px;
     left: 400px;
     overflow: hidden;
-    display: inline;
+    display: none;
 }
 
 #saxophone-image{
@@ -55,4 +55,13 @@ body{
     height: 18px;
     left: 97px;
     top: -317px;
+}
+
+#testcontainer{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: blueviolet;
+    left: 1200px;
+    top: 350px;
 }
