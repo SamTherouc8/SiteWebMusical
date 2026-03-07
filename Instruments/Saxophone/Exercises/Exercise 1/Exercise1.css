@@ -8,11 +8,11 @@ body{
 }
 
 #title1{
-    font-size: 130%;
+    font-size: 110%;
 }
 
 #title2{
-    font-size: 120%;
+    font-size: 100%;
 }
 
 #start-button-div{
@@ -37,7 +37,7 @@ body{
     height: 540px;
     width:268px;
     top: 200px;
-    left: 400px;
+    left: 20vw;
     overflow: hidden;
     display: none;
 }
@@ -48,20 +48,170 @@ body{
     top: 19px;
 }
 
-#key1{
-    background-color:aqua;
+.key{
     position: relative;
-    width: 18.5px;
-    height: 18px;
-    left: 97px;
-    top: -317px;
+    background-color: aqua;
 }
+
+.main-key{
+    width: 21px;
+    height: 20px;
+    left: 96px;
+}
+
+
+#key1{
+    top: -318px;
+}
+
+
+
+
+#key2{
+    top: -312px;
+}
+
+#key3{
+    top: -310px;
+}
+
+#key4{
+    top: -242.5px;
+}
+
+#key5{
+    top: -236px;
+}
+
+#key6{
+    top: -230px;
+}
+
+#low-c-key{
+    width: 30px;
+    height: 18px;
+    left: 89px;
+    top: -203px;
+}
+
+#eb-key{
+    width: 30px;
+    height: 18px;
+    left: 89px;
+    top: -240px;
+}
+
+#bb-key{
+    width: 15px;
+    height: 15px;
+    left: 114px;
+    top: -458px;
+}
+
+#alt-bb-key{
+    width: 15px;
+    height: 25px;
+    left: 50px;
+    top: -370px;
+}
+
+#alt-c-key{
+    width: 15px;
+    height: 20px;
+    left: 50px;
+    top: -413px;
+}
+
+#high-e-key{
+    width: 15px;
+    height: 20px;
+    left: 50px;
+    top: -453px;
+}
+
+#high-fsharp-key{
+    width: 15px;
+    height: 35px;
+    left: 78px;
+    top: -415px;
+}
+
+#alt-fsharp-key{
+    width: 25px;
+    height: 17px;
+    left: 70px;
+    top: -413px;
+}
+
+#octave-key{
+    width: 50px;
+    height: 50px;
+    left: 25px;
+    top: -610px;
+}
+
+#front-f-key{
+    width: 25px;
+    height: 25px;
+    left: 96px;
+    top: -685px;
+}
+
+#palm-d-key{
+    width: 15px;
+    height: 25px;
+    left: 227px;
+    top: -665px;
+}
+
+#palm-dsharp-key{
+    width: 15px;
+    height: 25px;
+    left: 215px;
+    top: -710px;
+}
+
+#palm-f-key{
+    width: 15px;
+    height: 25px;
+    left: 210px;
+    top: -710px;
+}
+
+#gsharp-key{
+    width: 30px;
+    height: 15px;
+    left: 200px;
+    top: -710px;
+}
+
+#low-b-key{
+    width: 15px;
+    height: 15px;
+    left: 202px;
+    top: -709px;
+}
+
+#low-bb-key{
+    width: 30px;
+    height: 20px;
+    left: 206px;
+    top: -712px;
+}
+
+#low-csharp-key{
+    width: 15px;
+    height: 15px;
+    left: 217px;
+    top: -748px;
+}
+
 
 #testcontainer{
     position: absolute;
     height: 100px;
     width: 100px;
     background-color: blueviolet;
-    left: 1200px;
+    left: 60vw;
     top: 350px;
 }
