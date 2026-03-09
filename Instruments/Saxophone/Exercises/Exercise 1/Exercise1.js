@@ -29,9 +29,9 @@ function nameFunction(id) {
 
    //If the checkbox is checked, display the output text
   if (checkBox.checked == true){
-    console.log(`${id} was checked`);
+    document.getElementById(`${id}-image`).style.display = `block`;
   } else {
-    console.log(`${id} was unchecked`);
+    document.getElementById(`${id}-image`).style.display = `none`;
   }
 }
 
@@ -49,6 +49,12 @@ function reset(){
     for (let element of elements) {
         element.checked = false;
     }
+
+    const elements2 = document.getElementsByClassName("key-image");
+    for (let element2 of elements2) {
+        element2.style.display = `none`;
+    }
+
     console.log("Checkboxes resetted.")
 }
 
