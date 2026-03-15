@@ -8,7 +8,7 @@ body{
 }
 
 #title1{
-    font-size: 110%;
+    font-size: 100%;
 }
 
 #title2{
@@ -43,6 +43,7 @@ body{
 
 #main-container{
     display: none;
+    width: 100vw;
 }
 
 #saxophone-container{
@@ -50,10 +51,11 @@ body{
     background-color: rgb(80, 80, 80);
     height: 540px;
     width:268px;
-    top: 200px;
-    left: 20vw;
+    top: 220px;
     overflow: hidden;
     display: none;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 #saxophone-image{
@@ -548,16 +550,21 @@ body{
     font-size:x-large;
     position: absolute;
     top: 512px;
-    left: 110px
+    left: 80px
 }
 
-#testcontainer{
+
+#apply-button{
+    text-align: center;
+}
+
+#apply-button-div{
+    height:11px;
+    width: 16px;
+    border-radius: 13px;
+    font-size:x-large;
     position: absolute;
-    height: 100px;
-    width: 100px;
-    background-color: blueviolet;
-    left: 60vw;
-    top: 350px;
+    top: 512px;
+    left: 140px
 }
-
 

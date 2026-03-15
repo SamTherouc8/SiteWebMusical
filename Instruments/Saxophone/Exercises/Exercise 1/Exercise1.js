@@ -1,28 +1,22 @@
 
-
+var noteArray = [];
 
 
 function startProgram(){
     document.getElementById(`main-container`).style.display = `inline`;
     document.getElementById(`saxophone-container`).style.display = `inline`;
-    document.getElementById(`testcontainer`).style.display = `inline`;
     document.getElementById(`my-timer`).style.display = `block`;
     document.getElementById(`start-button-div`).style.display = `none`;
 
     startTimer();
 
-
-
-
-
-    //let status = true;
-    //while(status === true){
-    //    
-    //}
+    //randomNumber = Math.floor(Math.random() * 24)
+    
 }
 
 
-function nameFunction(id) {
+
+function changeImage(id) {
  
    //Get the checkbox
   var checkBox = document.getElementById(`${id}-input`);
@@ -30,19 +24,40 @@ function nameFunction(id) {
    //If the checkbox is checked, display the output text
   if (checkBox.checked == true){
     document.getElementById(`${id}-image`).style.display = `block`;
-  } else {
-    document.getElementById(`${id}-image`).style.display = `none`;
   }
+
 }
 
 
-function note(){
-    //...
+function addToList(id){
+    noteArray.push(id)
+    console.log(noteArray)
 }
 
-function changeImage(){
-    //...
+function noteVerify(){
+    const note = ["key1"]  //In json
+
+    for (const element of note){
+        if (noteArray.includes(element)){
+            var index = noteArray.indexOf(element);
+            noteArray.splice(index, 1);
+        }
+        else{
+            noteArray.push("fail")
+            break;
+        }
+    }
+
+    console.log(noteArray)
+    if (!Array.isArray(noteArray) || !noteArray.length){
+        console.log("noice");
+    }
+    else{
+        console.log("oof");
+    }
+    reset()
 }
+
 
 function reset(){
     const elements = document.getElementsByClassName("input-key");
@@ -56,6 +71,9 @@ function reset(){
     }
 
     console.log("Checkboxes resetted.")
+
+    noteArray = []
+    console.log(noteArray)
 }
 
 
