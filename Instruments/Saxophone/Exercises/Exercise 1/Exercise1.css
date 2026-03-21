@@ -18,7 +18,7 @@ body{
 #my-timer{
     position: relative;
     text-align: center;
-    top: -3vh;
+    top: -1vh;
     color:aliceblue;
     font-size: 1.8rem;
     display: none;
@@ -46,10 +46,18 @@ body{
     width: 100vw;
 }
 
+#noteTextDiv{
+    text-align: center;
+}
+
+#noteText{
+    font-size: 100%;
+}
+
 #saxophone-container{
     position: absolute;
     background-color: rgb(80, 80, 80);
-    height: 540px;
+    height: 600px;
     width:268px;
     top: 220px;
     overflow: hidden;
@@ -549,7 +557,7 @@ body{
     border-radius: 13px;
     font-size:x-large;
     position: absolute;
-    top: 512px;
+    top: 568px;
     left: 80px
 }
 
@@ -564,7 +572,7 @@ body{
     border-radius: 13px;
     font-size:x-large;
     position: absolute;
-    top: 512px;
+    top: 568px;
     left: 140px
 }
 
