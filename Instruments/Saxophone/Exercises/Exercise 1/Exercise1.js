@@ -1,7 +1,9 @@
 var noteArray = [];
 var noteCompleted = false;
-var note = [];
 var score = 0;
+var tries = 0;
+var noteText = ``;
+var exerciseDifficulty = `medium`;
 
 var keysDictHard={
     "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
@@ -18,7 +20,7 @@ var keysDictHard={
     "Ab4": ["key1", "key2", "key3", "gsharp-key"],
     "A4": ["key1", "key2"],
     "Bb4": ["key1", "bb-key"],
-    "Bb3alt": ["key1", "key2", "alt-bb-key"],
+    "Bb4alt": ["key1", "key2", "alt-bb-key"],
     "B4": ["key1"],
     "C5": ["key2"],
     "C5alt": ["key1", "alt-c-key"],
@@ -99,18 +101,43 @@ var keysDictEasy={
     "G5": ["octave-key", "key1", "key2", "key3"]
 };
 
+var keysName={
+    "C": "Si♯/Do",
+    "Db": "Do♯/Ré♭",
+    "D": "Ré",
+    "Eb": "Ré♯/Mi♭",
+    "E": "Mi/Fa♭",
+    "F": "Mi♯/Fa",
+    "Gb": "Fa♯/Sol♭",
+    "G": "Sol",
+    "Ab": "Sol♯/La♭",
+    "A": "La",
+    "Bb": "La♯/Si♭",
+    "B": "Si/Do♭",
+}
+
+function showDifficulties(){
+    document.getElementById(`start-button-div`).style.display = `none`;
+
+    document.getElementById(`difficulties`).style.display = `inline`;
+
+}
 
 async function startProgram(){
     document.getElementById(`main-container`).style.display = `inline`;
     document.getElementById(`saxophone-container`).style.display = `inline`;
     document.getElementById(`my-timer`).style.display = `block`;
+     document.getElementById(`finishButton`).style.display = `inline`;
     document.getElementById(`start-button-div`).style.display = `none`;
-
+    
+    
     startTimer();
 
     while (true){
-        note = generateNote();
-        //display_text()
+        noteName = generateNote(exerciseDifficulty);
+        randomKeyValue = keysDictHard[noteName];
+        noteText = createNoteText(noteName);
+        displayNoteText(noteText);
 
         while (true){
             //console.log(`##########################`)
@@ -121,13 +148,13 @@ async function startProgram(){
             }
             else{
                 //console.log(`@@@@@@@@@@@@@@@@@@`)
-                await sleep(100)
+                await sleep(300)
                 //console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&`)
             }
         }
     
-        noteVerify(note)
-        //do something before reloop?
+        noteVerify(randomKeyValue)
+        //do something before reloop? score.
     };
 
 
@@ -159,19 +186,29 @@ function addToList(id){
     console.log(noteArray)
 }
 
-function generateNote(){
-    randomNumber = Math.floor(Math.random() * 42);
-    var randomKey = Object.keys(keysDictHard)[randomNumber];
-    randomKeyValue = keysDictHard[randomKey]
+function generateNote(exerciseDifficulty){
+    if(exerciseDifficulty == `easy`){
+        keysDict = keysDictEasy
+    }
+    else if(exerciseDifficulty == `medium`){
+        keysDict = keysDictMedium
+    }
+    else if(exerciseDifficulty == `hard`){
+        keysDict = keysDictHard
+    }
+
+    console.log(Object.keys(keysDict).length)
+    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length);
+    var randomKey = Object.keys(keysDict)[randomNumber];
+    randomKeyValue = keysDict[randomKey]
     console.log(randomKey)
 
-    return randomKeyValue
+    return randomKey
 }
 
 
 
 function noteVerify(note){
-
     for (const element of note){
         if (noteArray.includes(element)){
             var index = noteArray.indexOf(element);
@@ -186,9 +223,11 @@ function noteVerify(note){
     console.log(noteArray)
     if (!Array.isArray(noteArray) || !noteArray.length){
         console.log("noice");
+        increaseScore();
     }
     else{
         console.log("oof");
+        increaseTries();
     }
     reset()
 }
@@ -222,8 +261,69 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-function displayNoteText(){
-    
+function createNoteText(noteName){
+    originalNoteName = noteName
+    if(noteName.includes('alt')){
+        noteName = noteName.replace(`alt`, ``)
+        console.log(noteName )
+        noteText = `Note à inscrire: le doigté alternatif de`
+    }
+    else{
+        noteText = `Note à inscrire: le doigté habituel de`
+    }
+
+    if(noteName.includes('3')){
+        noteText = noteText + ` ${noteName.replace(`3`, ``)} très grave.`
+    }
+
+    else if(noteName.includes('4')){
+        noteText = noteText + ` ${noteName.replace(`4`, ``)} grave.`
+    }
+
+    else if(noteName.includes('5')){
+        noteText = noteText + ` ${noteName.replace(`5`, ``)} aigu.`
+    }
+
+    else if(noteName.includes('6')){
+        noteText = noteText + ` ${noteName.replace(`6`, ``)} très aigu.`
+    }
+
+    originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
+    noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]}`)
+    return noteText
+}
+
+
+function displayNoteText(noteText){
+    const noteTextId = document.getElementById("noteText");
+    noteTextId.textContent = noteText;
+}
+
+
+function increaseScore(){
+    const scoreTextId = document.getElementById("scoreText");
+    score += 1;
+    tries += 1;
+    scoreTextId.textContent = `score: ${score}/${tries}`;
+}
+
+function increaseTries(){
+    const scoreTextId = document.getElementById("scoreText");
+    tries += 1;
+    scoreTextId.textContent = `score: ${score}/${tries}`;
+}
+
+
+function setDifficulty(specifiedDifficulty){
+    if(specifiedDifficulty == `easy`){
+        exerciseDifficulty = `easy`
+    }
+    else if(specifiedDifficulty == `medium`){
+        exerciseDifficulty = `medium`
+    }
+    else if(specifiedDifficulty == `hard`){
+        exerciseDifficulty = `hard`
+    }
 }
 
 
@@ -267,4 +367,15 @@ function updateTimer(){
     //milliseconds = String(milliseconds).padStart(2, "0");
 
     display.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+
+
+
+
+function finish(){
+    //finish
+    //show image with difficulty, score, tries, name, ...
+
+    //actualize page
 }

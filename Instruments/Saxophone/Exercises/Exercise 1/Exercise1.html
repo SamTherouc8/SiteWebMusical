@@ -25,6 +25,20 @@
             <div id="my-timer">
                 00:00:00:00
             </div>
+        </div>
+
+        <div id="difficulties">
+            <div id="difficultiesText">
+                Choissisez votre difficulté
+            </div>
+            <div id="easyDifficulty">
+                <button onclick="setDifficulty(`easy`);startProgram()">Façile</button>
+            </div>
+            <div id="mediumDifficulty">
+                <button onclick="setDifficulty(`medium`);startProgram()">Moyen</button>
+            </div>
+            <div id="hardDifficulty">
+                <button onclick="setDifficulty(`hard`);startProgram()">Difficile</button>
             </div>
         </div>
 
@@ -32,9 +46,13 @@
             <div id="saxophone-container">
                 <div id="noteTextDiv">
                     <p id="noteText">
-                        note à inscrire: 
+                        display text 
                     </p>
-                    
+                </div>
+                <div id="scoreTextDiv">
+                    <p id="scoreText">
+                        score: 0/0
+                    </p>
                 </div>
                 <div id="saxophone-image">
                     <img src="../../../../Images/saxophone-fingerings.png" height="500px">
@@ -167,10 +185,13 @@
             </div>
         </div>
 
+        <div id="finishButton">
+            <button onclick="finish()">Terminer</button>
+        </div>
 
 
         <div id="start-button-div">
-            <button id="start-button" onclick="startProgram()">Débuter</button>
+            <button id="start-button" onclick="showDifficulties()">Débuter</button>
         </div>
         <script src="Exercise1.js"></script>
     </body>

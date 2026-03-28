@@ -24,6 +24,7 @@ body{
     display: none;
 }
 
+
 #start-button-div{
     text-align: center;
 }
@@ -48,16 +49,30 @@ body{
 
 #noteTextDiv{
     text-align: center;
+    height: 45px;
 }
 
 #noteText{
     font-size: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+#scoreTextDiv{
+    text-align: center;
+    height: 0px
+}
+
+#scoreText{
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+}
+
+
 
 #saxophone-container{
     position: absolute;
     background-color: rgb(80, 80, 80);
-    height: 600px;
+    height: 620px;
     width:268px;
     top: 220px;
     overflow: hidden;
@@ -557,7 +572,7 @@ body{
     border-radius: 13px;
     font-size:x-large;
     position: absolute;
-    top: 568px;
+    top: 591px;
     left: 80px
 }
 
@@ -572,7 +587,21 @@ body{
     border-radius: 13px;
     font-size:x-large;
     position: absolute;
-    top: 568px;
+    top: 591px;
     left: 140px
 }
 
+#difficulties{
+    text-align: center;
+    position: relative;
+    top: 50px;
+    display: none;
+}
+
+#finishButton{
+    display: none;
+    position: relative;
+    
+    text-align: center;
+    top: 700px
+}
