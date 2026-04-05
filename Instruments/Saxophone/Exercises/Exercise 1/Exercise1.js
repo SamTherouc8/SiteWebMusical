@@ -4,6 +4,7 @@ var score = 0;
 var tries = 0;
 var noteText = ``;
 var exerciseDifficulty = `medium`;
+var timerStatus = true;
 
 var keysDictHard={
     "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
@@ -127,8 +128,10 @@ async function startProgram(){
     document.getElementById(`main-container`).style.display = `inline`;
     document.getElementById(`saxophone-container`).style.display = `inline`;
     document.getElementById(`my-timer`).style.display = `block`;
-     document.getElementById(`finishButton`).style.display = `inline`;
+     document.getElementById(`finishButtonContainer`).style.display = `inline`;
     document.getElementById(`start-button-div`).style.display = `none`;
+    document.getElementById(`difficulties`).style.display = `none`;
+
     
     
     startTimer();
@@ -273,19 +276,19 @@ function createNoteText(noteName){
     }
 
     if(noteName.includes('3')){
-        noteText = noteText + ` ${noteName.replace(`3`, ``)} très grave.`
+        noteText = noteText + ` ${noteName} (très grave)`
     }
 
     else if(noteName.includes('4')){
-        noteText = noteText + ` ${noteName.replace(`4`, ``)} grave.`
+        noteText = noteText + ` ${noteName} (grave)`
     }
 
     else if(noteName.includes('5')){
-        noteText = noteText + ` ${noteName.replace(`5`, ``)} aigu.`
+        noteText = noteText + ` ${noteName} (aigu)`
     }
 
     else if(noteName.includes('6')){
-        noteText = noteText + ` ${noteName.replace(`6`, ``)} très aigu.`
+        noteText = noteText + ` ${noteName} (très aigu)`
     }
 
     originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
@@ -352,21 +355,22 @@ function resetTimer(){
 }
 
 function updateTimer(){
-    
-    const currentTime = Date.now();
-    elapsedTime = currentTime - startTime;
+    if(timerStatus == true){
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
 
-    let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60);
-    let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(elapsedTime / 1000 % 60);
+        let milliseconds = Math.floor(elapsedTime % 1000 / 10);
 
-    hours = String(hours).padStart(2, "0");
-    minutes = String(minutes).padStart(2, "0");
-    seconds = String(seconds).padStart(2, "0");
-    //milliseconds = String(milliseconds).padStart(2, "0");
+        hours = String(hours).padStart(2, "0");
+        minutes = String(minutes).padStart(2, "0");
+        seconds = String(seconds).padStart(2, "0");
+        //milliseconds = String(milliseconds).padStart(2, "0");
 
-    display.textContent = `${hours}:${minutes}:${seconds}`;
+        display.textContent = `${hours}:${minutes}:${seconds}`;
+    }
 }
 
 
@@ -374,8 +378,55 @@ function updateTimer(){
 
 
 function finish(){
+    
     //finish
     //show image with difficulty, score, tries, name, ...
 
     //actualize page
+
+    document.getElementById(`main-container`).style.display = `none`;
+    document.getElementById(`saxophone-container`).style.display = `none`;
+    document.getElementById(`finishButtonContainer`).style.display = `none`;
+
+    document.getElementById(`finishScreen`).style.display = `block`;
+    buildResults()
+
+
+
+
+
+}
+
+function buildResults(){
+    timerStatus = false;
+
+    if(exerciseDifficulty == `easy`){
+        difficultyName = `Façile`;
+    }
+    else if(exerciseDifficulty == `medium`){
+        difficultyName = `Moyen`;
+    }
+    else if(exerciseDifficulty == `hard`){
+        difficultyName = `Difficile`;
+    }
+
+    resultsDifficulty = `difficulté : ${difficultyName}`;
+    resultsScore = `score : ${score}/${tries}`;
+
+    if(tries == 0){
+        percentage = 0
+    }
+    else{
+        percentage = Math.round((score/tries)*100)
+    }
+
+
+    const difficultyText = document.getElementById("finishScreenDifficulty");
+    difficultyText.textContent = resultsDifficulty;
+
+    const percentageText = document.getElementById("finishScreenPercentage");
+    percentageText.textContent = `${percentage}%`;
+
+    const scoreText = document.getElementById("finishScreenScore");
+    scoreText.textContent = resultsScore;
 }

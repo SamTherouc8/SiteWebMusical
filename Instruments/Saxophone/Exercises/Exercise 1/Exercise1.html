@@ -16,7 +16,6 @@
             </div>
         </div>
         
-        <hr>
         <div id="home-button">
             <a href="../../../../index.html"><img src="../../../../Images/home.png" height="40"></a>
         </div>
@@ -31,19 +30,19 @@
             <div id="difficultiesText">
                 Choissisez votre difficulté
             </div>
-            <div id="easyDifficulty">
-                <button onclick="setDifficulty(`easy`);startProgram()">Façile</button>
+            <div>
+                <button id="easyDifficulty" class="fade-in" onclick="setDifficulty(`easy`);startProgram()">Façile</button>
             </div>
-            <div id="mediumDifficulty">
-                <button onclick="setDifficulty(`medium`);startProgram()">Moyen</button>
+            <div>
+                <button id="mediumDifficulty" class="fade-in" onclick="setDifficulty(`medium`);startProgram()">Moyen</button>
             </div>
-            <div id="hardDifficulty">
-                <button onclick="setDifficulty(`hard`);startProgram()">Difficile</button>
+            <div>
+                <button id="hardDifficulty" class="fade-in" onclick="setDifficulty(`hard`);startProgram()">Difficile</button>
             </div>
         </div>
 
         <div id="main-container">
-            <div id="saxophone-container">
+            <div id="saxophone-container" class="fade-in">
                 <div id="noteTextDiv">
                     <p id="noteText">
                         display text 
@@ -185,8 +184,18 @@
             </div>
         </div>
 
-        <div id="finishButton">
-            <button onclick="finish()">Terminer</button>
+        <div id="finishScreen" class="fade-in">
+            <p id="finishScreenText">Voici vos résultats :</p>
+            <p id="finishScreenDifficulty">difficulty</p>
+            <p id="finishScreenScore">score</p>
+            <p id="finishScreenPercentage">percentage</p>
+            <div id="nameInputContainer">
+                <input type="text" id="nameInput" placeholder="saisir votre nom">
+            </div>
+        </div>
+
+        <div id="finishButtonContainer">
+            <button id="finishButton" onclick="finish()">Terminer</button>
         </div>
 
 

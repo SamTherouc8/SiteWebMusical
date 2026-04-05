@@ -1,9 +1,8 @@
 body{
-    background-color: rgba(7, 7, 7, 0.905);
+    background-image: linear-gradient(to bottom left, rgb(14, 14, 14), rgb(110, 110, 110), rgb(14, 14, 14));
 }
 
 #top{
-    background-color: dimgrey;
     text-align: center;
 }
 
@@ -19,13 +18,20 @@ body{
     text-align: left;
 }
 
+#allInstruments{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 8px;
+
+}
+
 .instrumentBox{
     border-style: solid;
     border-color: dimgray;
     border-radius: 50px;
     background-color: rgb(36, 36, 36);
-
 }
+
 
 .instrumentName{
     color: aliceblue;
@@ -38,36 +44,56 @@ body{
 .instrumentImage{
     display: flex;
     justify-content: center;
+
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.8s;
 }
+
 
 .clickButton{
+    font-size: 110%;
+    border-radius: 20%;
+    border-color: black;
+    background-color: rgb(96, 96, 96);
+}
+
+.buttonContainer{
+    position: relative;
     text-align: center;
-    font-size: 150%;
+}
+
+#fluteImage, #trumpetImage{
+    position: relative;
+    width: 32vw;
+    height: auto;
+    left: 0vw;
+}
+
+
+#saxophoneImage, #clarinetImage{
+    position: relative;
+    height: 40vh;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
 }
 
 
 
-#row1, #row2{
-    overflow: hidden;
-}
-
-
-
-#saxophoneBox, #fluteBox{
-    float: left;
-    width: 49.2%;
-}
-
-#clarinetBox, #trumpetBox{
-    float: right;
-    width: 49.2%; 
-}
-
-#saxophoneBox, #clarinetBox{
-    height: 97%;
-}
-
-#fluteBox, #trumpetBox{
-    height: 97%
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
