@@ -47,8 +47,8 @@ var keysDictHard={
     "E6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key"],
     "F6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key"],
     "F6alt": ["octave-key", "front-f-key", "key2"],
-    "Gb6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key", "alt-fsharp-key"],
-    "Gb6alt": ["octave-key", "front-f-key", "key2", "alt-fsharp-key"]
+    "Gb6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key", "high-fsharp-key"],
+    "Gb6alt": ["octave-key", "front-f-key", "key2", "high-fsharp-key"]
 };
 
 var keysDictMedium={
@@ -118,7 +118,6 @@ var keysName={
 
 function showDifficulties(){
     document.getElementById(`start-button-div`).style.display = `none`;
-
     document.getElementById(`difficulties`).style.display = `inline`;
 
 }
@@ -131,15 +130,12 @@ async function startProgram(){
     document.getElementById(`start-button-div`).style.display = `none`;
     document.getElementById(`difficulties`).style.display = `none`;
 
-
     
     startTimer();
 
     while(true){
         noteName = generateNote(exerciseDifficulty);
-        console.log(noteName)
         noteArray = keysDict[noteName];
-        console.log(noteArray)
         showNote(noteArray)
         setList()
 

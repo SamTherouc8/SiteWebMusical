@@ -48,8 +48,8 @@ var keysDictHard={
     "E6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key"],
     "F6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key"],
     "F6alt": ["octave-key", "front-f-key", "key2"],
-    "Gb6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key", "alt-fsharp-key"],
-    "Gb6alt": ["octave-key", "front-f-key", "key2", "alt-fsharp-key"]
+    "Gb6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key", "high-fsharp-key"],
+    "Gb6alt": ["octave-key", "front-f-key", "key2", "high-fsharp-key"]
 };
 
 var keysDictMedium={

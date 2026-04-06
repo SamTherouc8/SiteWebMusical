@@ -1,18 +1,21 @@
 body{
-    background-color: rgba(7, 7, 7, 0.905);
+    background-image: linear-gradient(to bottom left, rgb(14, 14, 14), rgb(58, 58, 58), rgb(14, 14, 14));
 }
 
 #top{
-    background-color: dimgrey;
     text-align: center;
 }
 
 #title1{
     font-size: 130%;
+    color: white;
+    font-family: sans-serif;
 }
 
 #title2{
     font-size: 120%;
+        color: white;
+    font-family: sans-serif;
 }
 
 .practiceOption{
@@ -27,6 +30,7 @@ body{
     text-align: center;
     font-size: 200%;
     color: rgb(255, 204, 0);
+    font-family:'Courier New', Courier, monospace;
 }
 
 .buttonDiv{
@@ -34,11 +38,30 @@ body{
 }
 
 .optionButton{
-    background-color:gold;
+    background-color:rgb(132, 132, 132);
+    border-radius: 15%;
 }
 
+.optionButton:hover{
+    background-color:rgb(101, 101, 101);
+    transition: background-color 0.2s ease;
+}
 
 #buttonText{
     font-size: large;
-    color:teal;
+    color:rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+
+#home-button{
+    position: absolute;
+    top: 10px;
+}
+
+#main-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    padding: 10px;
+    
 }
