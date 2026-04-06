@@ -1,4 +1,3 @@
-var noteArray = [];
 var noteCompleted = false;
 var score = 0;
 var tries = 0;
@@ -132,15 +131,17 @@ async function startProgram(){
     document.getElementById(`start-button-div`).style.display = `none`;
     document.getElementById(`difficulties`).style.display = `none`;
 
-    
+
     
     startTimer();
 
-    while (true){
+    while(true){
         noteName = generateNote(exerciseDifficulty);
-        randomKeyValue = keysDict[noteName];
-        noteText = createNoteText(noteName);
-        displayNoteText(noteText);
+        console.log(noteName)
+        noteArray = keysDict[noteName];
+        console.log(noteArray)
+        showNote(noteArray)
+        setList()
 
         while (true){
             if(noteCompleted == true){
@@ -151,95 +152,11 @@ async function startProgram(){
                 await sleep(300)
             }
         }
-    
-        noteVerify(randomKeyValue)
+
+        noteVerify(noteName)
     };
-
-
+};
     
-
-
-
-
-
-}
-
-
-
-function changeImage(id) {
- 
-   //Get the checkbox
-  var checkBox = document.getElementById(`${id}-input`);
-
-   //If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    document.getElementById(`${id}-image`).style.display = `block`;
-  }
-
-}
-
-
-function addToList(id){
-    noteArray.push(id)
-}
-
-function generateNote(exerciseDifficulty){
-    if(exerciseDifficulty == `easy`){
-        keysDict = keysDictEasy
-    }
-    else if(exerciseDifficulty == `medium`){
-        keysDict = keysDictMedium
-    }
-    else if(exerciseDifficulty == `hard`){
-        keysDict = keysDictHard
-    }
-
-    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length);
-    var randomKey = Object.keys(keysDict)[randomNumber];
-    randomKeyValue = keysDict[randomKey]
-
-    return randomKey
-}
-
-
-
-function noteVerify(note){
-    for (const element of note){
-        if (noteArray.includes(element)){
-            var index = noteArray.indexOf(element);
-            noteArray.splice(index, 1);
-        }
-        else{
-            noteArray.push("fail")
-            break;
-        }
-    }
-
-    if (!Array.isArray(noteArray) || !noteArray.length){
-        increaseScore();
-    }
-    else{
-        increaseTries();
-    }
-    reset()
-}
-
-
-function reset(){
-    const elements = document.getElementsByClassName("input-key");
-    for (let element of elements) {
-        element.checked = false;
-    }
-
-    const elements2 = document.getElementsByClassName("key-image");
-    for (let element2 of elements2) {
-        element2.style.display = `none`;
-    }
-
-    noteArray = []
-}
-
-
 
 function noteCompletedFunction(){
     noteCompleted = true;
@@ -254,10 +171,10 @@ function createNoteText(noteName){
     originalNoteName = noteName
     if(noteName.includes('alt')){
         noteName = noteName.replace(`alt`, ``)
-        noteText = `Note à inscrire: le doigté alternatif de`
+        noteText = `doigté alternatif de`
     }
     else{
-        noteText = `Note à inscrire: le doigté habituel de`
+        noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')){
@@ -281,10 +198,65 @@ function createNoteText(noteName){
     return noteText
 }
 
+function setList(){
+    var notesList = document.getElementById(`noteChoice`)
+    notesList.innerHTML = "";
 
-function displayNoteText(noteText){
-    const noteTextId = document.getElementById("noteText");
-    noteTextId.textContent = noteText;
+    var optionArray = ["|"]
+    for (const note of Object.keys(keysDict)){
+        var option = `${note}|${createNoteText(note)}`
+        optionArray.push(option)
+    }
+
+    for(var option in optionArray) {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        notesList.options.add(newOption);
+    }
+
+}
+
+function generateNote(exerciseDifficulty){
+    if(exerciseDifficulty == `easy`){
+        keysDict = keysDictEasy
+    }
+    else if(exerciseDifficulty == `medium`){
+        keysDict = keysDictMedium
+    }
+    else if(exerciseDifficulty == `hard`){
+        keysDict = keysDictHard
+    }
+
+    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length);
+    var randomKey = Object.keys(keysDict)[randomNumber];
+    randomKeyValue = keysDict[randomKey]
+    console.log(randomKey)
+
+    return randomKey
+}
+
+function changeImage(id) {
+   //Get the checkbox
+    document.getElementById(`${id}-image`).style.display = `inline`;
+}
+
+function showNote(noteArray){
+    for (const note of noteArray){
+        changeImage(note)
+    }
+}
+
+function noteVerify(note){
+    var notesList = document.getElementById(`noteChoice`)
+    if(notesList.value == note){
+        increaseScore()
+    }
+    else{
+        increaseTries()
+    }
+    reset()
 }
 
 
@@ -314,6 +286,20 @@ function setDifficulty(specifiedDifficulty){
     }
 }
 
+
+function reset(){
+    const elements = document.getElementsByClassName("input-key");
+    for (let element of elements) {
+        element.checked = false;
+    }
+
+    const elements2 = document.getElementsByClassName("key-image");
+    for (let element2 of elements2) {
+        element2.style.display = `none`;
+    }
+
+    noteArray = []
+}
 
 
 const display = document.getElementById("my-timer");
