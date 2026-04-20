@@ -1,68 +1,7 @@
-
-var keysDict={
-    "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
-    "B3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-b-key"],
-    "C4": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key"],
-    "Db4": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-csharp-key"],
-    "D4": ["key1", "key2", "key3", "key4", "key5", "key6"],
-    "Eb4": ["key1", "key2", "key3", "key4", "key5", "key6", "eb-key"],
-    "E4": ["key1", "key2", "key3", "key4", "key5"],
-    "F4": ["key1", "key2", "key3", "key4"],
-    "Gb4": ["key1", "key2", "key3", "key5"],
-    "Gb4alt": ["key1", "key2", "key3", "key4", "alt-fsharp-key"],
-    "G4": ["key1", "key2", "key3"],
-    "Ab4": ["key1", "key2", "key3", "gsharp-key"],
-    "A4": ["key1", "key2"],
-    "Bb4": ["key1", "bb-key"],
-    "Bb4alt": ["key1", "key2", "alt-bb-key"],
-    "B4": ["key1"],
-    "C5": ["key2"],
-    "C5alt": ["key1", "alt-c-key"],
-    "Db5": [],
-
-    "D5": ["octave-key", "key1", "key2", "key3", "key4", "key5", "key6"],
-    "D5alt": ["palm-d-key"],
-    "Eb5": ["octave-key", "key1", "key2", "key3", "key4", "key5", "key6", "eb-key"],
-    "E5": ["octave-key", "key1", "key2", "key3", "key4", "key5"],
-    "F5": ["octave-key", "key1", "key2", "key3", "key4"],
-    "Gb5": ["octave-key", "key1", "key2", "key3", "key5"],
-    "Gb5alt": ["octave-key", "key1", "key2", "key3", "key4", "alt-fsharp-key"],
-    "G5": ["octave-key", "key1", "key2", "key3"],
-    "Ab5": ["octave-key", "key1", "key2", "key3", "gsharp-key"],
-    "A5": ["octave-key", "key1", "key2"],
-    "Bb5": ["octave-key", "key1", "bb-key"],
-    "Bb5alt": ["octave-key", "key1", "key2", "alt-bb-key"],
-    "B5": ["octave-key", "key1"],
-    "C6": ["octave-key", "key2"],
-    "C6alt": ["octave-key", "key1", "alt-c-key"],
-    "Db6": ["octave-key"],
-    "D6": ["octave-key", "palm-d-key"],
-    "Eb6": ["octave-key", "palm-d-key", "palm-dsharp-key"],
-    "E6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key"],
-    "F6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key"],
-    "F6alt": ["octave-key", "front-f-key", "key2"],
-    "Gb6": ["octave-key", "palm-d-key", "palm-dsharp-key", "high-e-key", "palm-f-key", "high-fsharp-key"],
-    "Gb6alt": ["octave-key", "front-f-key", "key2", "high-fsharp-key"]
-};
-
-var keysName={
-    "C": "Si♯/Do",
-    "Db": "Do♯/Ré♭",
-    "D": "Ré",
-    "Eb": "Ré♯/Mi♭",
-    "E": "Mi/Fa♭",
-    "F": "Mi♯/Fa",
-    "Gb": "Fa♯/Sol♭",
-    "G": "Sol",
-    "Ab": "Sol♯/La♭",
-    "A": "La",
-    "Bb": "La♯/Si♭",
-    "B": "Si/Do♭",
-}
-
-
-
-
+import {
+    keysDictHard,
+    keysName
+} from '../../common.js';
 
     
 setList()
@@ -73,15 +12,12 @@ function manageInput(){
     var noteName = selectedNote.value;
     console.log(noteName);
 
-    var noteArray = keysDict[noteName];
+    var noteArray = keysDictHard[noteName];
     console.log(noteArray);
     
     showNote(noteArray);
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
 
 function createNoteText(noteName){
     originalNoteName = noteName
@@ -119,7 +55,7 @@ function setList(){
     notesList.innerHTML = "";
 
     var optionArray = []
-    for (const note of Object.keys(keysDict)){
+    for (const note of Object.keys(keysDictHard)){
         var option = `${note}|${createNoteText(note)}`
         optionArray.push(option)
     }

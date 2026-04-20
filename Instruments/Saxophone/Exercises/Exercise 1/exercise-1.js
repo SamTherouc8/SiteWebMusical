@@ -1,10 +1,18 @@
-var noteArray = [];
-var noteCompleted = false;
 var score = 0;
 var tries = 0;
-var noteText = ``;
 var exerciseDifficulty = `medium`;
 var timerStatus = true;
+var noteCompleted = false;
+var noteText = ``;
+var noteArray = [];
+var keysDict = {}
+
+const display = document.getElementById("timer");
+let timer = null;
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
+
 
 var keysDictHard={
     "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
@@ -117,120 +125,73 @@ var keysName={
     "B": "Si/Do♭",
 }
 
-function showDifficulties(){
-    document.getElementById(`start-button-div`).style.display = `none`;
 
+
+function showDifficulties() {
+    document.getElementById(`start-button-container`).style.display = `none`;
     document.getElementById(`difficulties`).style.display = `inline`;
+};
 
-}
+function setDifficulty(specifiedDifficulty){
+    console.log(specifiedDifficulty)
+    if (specifiedDifficulty == `easy`) {
+        exerciseDifficulty = `easy`
+    } else if(specifiedDifficulty == `medium`) {
+        exerciseDifficulty = `medium`
+    } else if (specifiedDifficulty == `hard`) {
+        exerciseDifficulty = `hard`
+    }
 
-async function startProgram(){
-    document.getElementById(`main-container`).style.display = `inline`;
-    document.getElementById(`saxophone-container`).style.display = `inline`;
-    document.getElementById(`my-timer`).style.display = `block`;
-    document.getElementById(`finishButtonContainer`).style.display = `inline`;
-    document.getElementById(`start-button-div`).style.display = `none`;
-    document.getElementById(`difficulties`).style.display = `none`;
-
-    
-    
-    startTimer();
-
-    while (true){
-        noteName = generateNote(exerciseDifficulty);
-        randomKeyValue = keysDict[noteName];
-        noteText = createNoteText(noteName);
-        displayNoteText(noteText);
-
-        while (true){
-            if(noteCompleted == true){
-                noteCompleted = false
-                break
-            }
-            else{
-                await sleep(300)
-            }
-        }
-    
-        noteVerify(randomKeyValue)
+    if(exerciseDifficulty == `easy`) {
+        keysDict = keysDictEasy;
+    } else if (exerciseDifficulty == `medium`) {
+        keysDict = keysDictMedium;
+    } else if (exerciseDifficulty == `hard`) {
+        keysDict = keysDictHard;
     };
-
-
-    
-
-
-
-
-
 }
 
+function changeNoteImage(id) {
+    const keyImage = document.getElementById(`${id}-image`);
+    const keyInput = document.getElementById(`${id}-input`);
+    if (keyInput.checked) {
+        console.log('now checked')
+        keyImage.style.display = `inline`;
+        addNoteToList(id)
+    } else if (keyInput.checked == false) {
+        console.log('now unckecked')
+        keyImage.style.display = `none`;
+        removeNoteFromList(id)
+    }
+};
 
-
-function changeImage(id) {
- 
-   //Get the checkbox
-  var checkBox = document.getElementById(`${id}-input`);
-
-   //If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    document.getElementById(`${id}-image`).style.display = `block`;
-  }
-
-}
-
-
-function addToList(id){
+function addNoteToList(id){
     noteArray.push(id)
+};
+
+function removeNoteFromList(id){
+    noteArray.splice(id, 1)
+};
+
+// This function generates a random note, gets its array and returns its name as well as its array.
+function generateNote(){
+    //Generate a random number, get the key and then access the value of that key
+    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length); // generate the random number
+    var randomKey = Object.keys(keysDict)[randomNumber]; // get the note name (key)
+    randomKeyValue = keysDict[randomKey] // get the note array (value)
+
+    return [randomKey, randomKeyValue]
 }
 
-function generateNote(exerciseDifficulty){
-    if(exerciseDifficulty == `easy`){
-        keysDict = keysDictEasy
-    }
-    else if(exerciseDifficulty == `medium`){
-        keysDict = keysDictMedium
-    }
-    else if(exerciseDifficulty == `hard`){
-        keysDict = keysDictHard
-    }
-
-    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length);
-    var randomKey = Object.keys(keysDict)[randomNumber];
-    randomKeyValue = keysDict[randomKey]
-
-    return randomKey
-}
-
-
-
-function noteVerify(note){
-    for (const element of note){
-        if (noteArray.includes(element)){
-            var index = noteArray.indexOf(element);
-            noteArray.splice(index, 1);
-        }
-        else{
-            noteArray.push("fail")
-            break;
-        }
-    }
-
-    if (!Array.isArray(noteArray) || !noteArray.length){
-        increaseScore();
-    }
-    else{
-        increaseTries();
-    }
-    reset()
-}
-
-
+// This function deactivates all of the notes and clears the noteArray
 function reset(){
+    // Unchecks all of the checkboxes
     const elements = document.getElementsByClassName("input-key");
     for (let element of elements) {
         element.checked = false;
     }
 
+    // Hides all of the images
     const elements2 = document.getElementsByClassName("key-image");
     for (let element2 of elements2) {
         element2.style.display = `none`;
@@ -239,17 +200,46 @@ function reset(){
     noteArray = []
 }
 
+//This function verifies if the user's noteArray is the same as the desired noteArray.
+function noteVerify(note){
+    /**
+     * For each fingering of a note, it checks if the noteArray includes that element.
+     * If it does, it removes the element out of the noteArray.
+     * If it doesn't, it adds a ­fail element to the noteArray, which makes it fail.
+     */
+    for (const element of note){
+        if (noteArray.includes(element)){
+            var index = noteArray.indexOf(element);
+            removeNoteFromList(index)
+        }
+        else{
+            noteArray.push("fail")
+            break;
+        }
+    }
 
 
+    //if noteArray is empty, it succeeds and increases the score
+    if (!Array.isArray(noteArray) || !noteArray.length){
+        increaseScore();
+    }
+    else{
+        increaseTries();
+    }
+    reset();
+}
+
+// this function sets the note guess as completed. It gets called by the html once the user verifies their answer.
 function noteCompletedFunction(){
     noteCompleted = true;
 }
 
-
+// Sleep is needed to wait for the user to be done.
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+// This function creates the next to be displayed when a random note is automatically picked for the user to know what to enter.
 function createNoteText(noteName){
     originalNoteName = noteName
     if(noteName.includes('alt')){
@@ -277,50 +267,30 @@ function createNoteText(noteName){
     }
 
     originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
-    noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]}`)
+    noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]} `)
     return noteText
 }
 
 
 function displayNoteText(noteText){
-    const noteTextId = document.getElementById("noteText");
+    const noteTextId = document.getElementById("note-text");
     noteTextId.textContent = noteText;
 }
 
 
 function increaseScore(){
-    const scoreTextId = document.getElementById("scoreText");
+    const scoreTextId = document.getElementById("score-text");
     score += 1;
     tries += 1;
     scoreTextId.textContent = `score: ${score}/${tries}`;
 }
 
 function increaseTries(){
-    const scoreTextId = document.getElementById("scoreText");
+    const scoreTextId = document.getElementById("score-text");
     tries += 1;
     scoreTextId.textContent = `score: ${score}/${tries}`;
 }
 
-
-function setDifficulty(specifiedDifficulty){
-    if(specifiedDifficulty == `easy`){
-        exerciseDifficulty = `easy`
-    }
-    else if(specifiedDifficulty == `medium`){
-        exerciseDifficulty = `medium`
-    }
-    else if(specifiedDifficulty == `hard`){
-        exerciseDifficulty = `hard`
-    }
-}
-
-
-
-const display = document.getElementById("my-timer");
-let timer = null;
-let startTime = 0;
-let elapsedTime = 0;
-let isRunning = false;
 
 function startTimer(){
     if(!isRunning){
@@ -371,9 +341,9 @@ function finish(){
 
     document.getElementById(`main-container`).style.display = `none`;
     document.getElementById(`saxophone-container`).style.display = `none`;
-    document.getElementById(`finishButtonContainer`).style.display = `none`;
+    document.getElementById(`finish-button-container`).style.display = `none`;
 
-    document.getElementById(`finishScreen`).style.display = `block`;
+    document.getElementById(`finish-screen`).style.display = `block`;
     buildResults()
 
 
@@ -406,12 +376,46 @@ function buildResults(){
     }
 
 
-    const difficultyText = document.getElementById("finishScreenDifficulty");
+    const difficultyText = document.getElementById("finish-screen-difficulty");
     difficultyText.textContent = resultsDifficulty;
 
-    const percentageText = document.getElementById("finishScreenPercentage");
+    const percentageText = document.getElementById("finish-screen-percentage");
     percentageText.textContent = `${percentage}%`;
 
-    const scoreText = document.getElementById("finishScreenScore");
+    const scoreText = document.getElementById("finish-screen-score");
     scoreText.textContent = resultsScore;
 }
+
+
+
+
+async function startProgram(){
+    document.getElementById(`difficulties`).style.display = `none`;
+
+    document.getElementById(`main-container`).style.display = `inline`;
+    document.getElementById(`saxophone-container`).style.display = `inline`;
+    document.getElementById(`finish-button-container`).style.display = `inline`;
+
+    document.getElementById(`timer`).style.display = `block`;
+
+    
+    startTimer();
+
+    while (true) {
+        let [noteName, randomKeyArray] = generateNote(exerciseDifficulty);
+        noteText = createNoteText(noteName);
+        displayNoteText(noteText);
+
+        while (true){
+            if (noteCompleted == true) {
+                noteCompleted = false
+                break
+            } else {
+                await sleep(300)
+            }
+        }
+    
+        noteVerify(randomKeyArray)
+    };
+}
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="exercise-1.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="page-text-container">
+            <div id="page-title">
+                <h1>Exercice 1</h1>
+            </div>
+            <div id="page-description">
+                <h2>Indiquer le doigté à partir de la note</h2>
+            </div>
+        </div>
+        
+        <div id="home-button">
+            <a href="../../../../index.html"><img src="../../../../Images/home.png" height="40"></a>
+        </div>
+
+        <div>
+            <div id="timer">
+                00:00:00
+            </div>
+        </div>
+
+        <div id="difficulties">
+            <div id="difficulties-text-container">
+                Choissisez votre difficulté
+            </div>
+            <div>
+                <button id="easy-difficulty" class="fade-in" onclick="setDifficulty(`easy`);startProgram()">Façile</button>
+            </div>
+            <div>
+                <button id="medium-difficulty" class="fade-in" onclick="setDifficulty(`medium`);startProgram()">Moyen</button>
+            </div>
+            <div>
+                <button id="hard-difficulty" class="fade-in" onclick="setDifficulty(`hard`);startProgram()">Difficile</button>
+            </div>
+        </div>
+
+        <div id="start-button-container">
+            <button id="start-button" onclick="showDifficulties()">Débuter</button>
+        </div>
+
+        <div id="main-container">
+            <div id="saxophone-container" class="fade-in">
+                <div id="note-text-container">
+                    <p id="note-text">
+                        display text 
+                    </p>
+                </div>
+                <div id="score-text-container">
+                    <p id="score-text">
+                        score: 0/0
+                    </p>
+                </div>
+                <div id="saxophone-image">
+                    <img src="../../Images/saxophone-fingerings.png" height="500px">
+                </div>
+
+                <!--Keys-->
+                <div>
+                    <div id="key1" class="key main-key">
+                        <input type="checkbox" id="key1-input" class="input-key" onclick="changeNoteImage(`key1`)">
+                        <img id="key1-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="key2" class="key main-key">
+                        <input type="checkbox" id="key2-input" class="input-key" onclick="changeNoteImage(`key2`)">
+                        <img id="key2-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="key3" class="key main-key">
+                        <input type="checkbox" id="key3-input" class="input-key" onclick="changeNoteImage(`key3`)">
+                        <img id="key3-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="key4" class="key main-key">
+                        <input type="checkbox" id="key4-input" class="input-key" onclick="changeNoteImage(`key4`)">
+                        <img id="key4-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="key5" class="key main-key">
+                        <input type="checkbox" id="key5-input" class="input-key" onclick="changeNoteImage('key5')">
+                        <img id="key5-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="key6" class="key main-key">
+                        <input type="checkbox" id="key6-input" class="input-key" onclick="changeNoteImage('key6')">
+                        <img id="key6-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png">
+                    </div>
+
+                    <div id="low-c-key" class="key">
+                        <input type="checkbox" class="input-key" id="low-c-key-input" onclick="changeNoteImage('low-c-key')">
+                        <img id="low-c-key-image" class="key-image" src="../../Images/Saxophone Keys/low-c-key.png">
+                    </div>
+                    
+                    <div id="eb-key" class="key">
+                        <input type="checkbox" class="input-key" id="eb-key-input" onclick="changeNoteImage('eb-key')">
+                        <img id="eb-key-image" class="key-image" src="../../Images/Saxophone Keys/eb-key.png">
+                    </div>
+
+                    <div id="bb-key" class="key">
+                        <input type="checkbox" class="input-key" id="bb-key-input" onclick="changeNoteImage('bb-key')">
+                        <img id="bb-key-image" class="key-image" src="../../Images/Saxophone Keys/bb-key.png">
+                    </div>
+
+                    <div id="alt-bb-key" class="key">
+                        <input type="checkbox" class="input-key" id="alt-bb-key-input" onclick="changeNoteImage('alt-bb-key')">
+                        <img id="alt-bb-key-image" class="key-image" src="../../Images/Saxophone Keys/alt-bb-key.png">
+                    </div>
+
+                    <div id="alt-c-key" class="key">
+                        <input type="checkbox" class="input-key" id="alt-c-key-input" onclick="changeNoteImage('alt-c-key')">
+                        <img id="alt-c-key-image" class="key-image" src="../../Images/Saxophone Keys/alt-c-key.png">
+                    </div>
+
+                    <div id="high-e-key" class="key">
+                        <input type="checkbox" class="input-key" id="high-e-key-input" onclick="changeNoteImage('high-e-key')">
+                        <img id="high-e-key-image" class="key-image" src="../../Images/Saxophone Keys/high-e-key.png">
+                    </div>
+
+                    <div id="high-fsharp-key" class="key">
+                        <input type="checkbox" class="input-key" id="high-fsharp-key-input" onclick="changeNoteImage('high-fsharp-key')">
+                        <img id="high-fsharp-key-image" class="key-image" src="../../Images/Saxophone Keys/high-fsharp-key.png">
+                    </div>
+
+                    <div id="alt-fsharp-key" class="key">
+                        <input type="checkbox" class="input-key" id="alt-fsharp-key-input" onclick="changeNoteImage('alt-fsharp-key')">
+                        <img id="alt-fsharp-key-image" class="key-image" src="../../Images/Saxophone Keys/alt-fsharp-key.png">
+                    </div>
+
+                    <div id="octave-key" class="key">
+                        <input type="checkbox" class="input-key" id="octave-key-input" onclick="changeNoteImage('octave-key')">
+                        <img id="octave-key-image" class="key-image" src="../../Images/Saxophone Keys/octave-key.png">
+                    </div>
+
+                    <div id="front-f-key" class="key">
+                        <input type="checkbox" class="input-key" id="front-f-key-input" onclick="changeNoteImage('front-f-key')">
+                        <img id="front-f-key-image" class="key-image" src="../../Images/Saxophone Keys/front-f-key.png">
+                    </div>
+
+                    <div id="palm-d-key" class="key">
+                        <input type="checkbox" class="input-key" id="palm-d-key-input" onclick="changeNoteImage('palm-d-key')">
+                        <img id="palm-d-key-image" class="key-image" src="../../Images/Saxophone Keys/palm-key.png">
+                    </div>
+
+                    <div id="palm-dsharp-key" class="key">
+                        <input type="checkbox" class="input-key" id="palm-dsharp-key-input" onclick="changeNoteImage('palm-dsharp-key')">
+                        <img id="palm-dsharp-key-image" class="key-image" src="../../Images/Saxophone Keys/palm-key.png">
+                    </div>
+
+                    <div id="palm-f-key" class="key">
+                        <input type="checkbox" class="input-key" id="palm-f-key-input" onclick="changeNoteImage('palm-f-key')">
+                        <img id="palm-f-key-image" class="key-image" src="../../Images/Saxophone Keys/palm-key.png">
+                    </div>
+
+                    <div id="gsharp-key" class="key">
+                        <input type="checkbox" class="input-key" id="gsharp-key-input" onclick="changeNoteImage('gsharp-key')">
+                        <img id="gsharp-key-image" class="key-image" src="../../Images/Saxophone Keys/gsharp-key.png">
+                    </div>
+                    
+                    <div id="low-b-key" class="key">
+                        <input type="checkbox" class="input-key" id="low-b-key-input" onclick="changeNoteImage('low-b-key')">
+                        <img id="low-b-key-image" class="key-image" src="../../Images/Saxophone Keys/low-b-key.png">
+                    </div>
+
+                    <div id="low-bb-key" class="key">
+                        <input type="checkbox" class="input-key" id="low-bb-key-input" onclick="changeNoteImage('low-bb-key')">
+                        <img id="low-bb-key-image" class="key-image" src="../../Images/Saxophone Keys/low-bb-key.png">
+                    </div>
+
+                    <div id="low-csharp-key" class="key">
+                        <input type="checkbox" class="input-key" id="low-csharp-key-input" onclick="changeNoteImage('low-csharp-key')">
+                        <img id="low-csharp-key-image" class="key-image" src="../../Images/Saxophone Keys/low-csharp-key.png">
+                    </div>
+
+
+
+                </div>
+                <div id="reset-button-container">
+                    <button id="reset-button" onclick="reset()">Réinitialiser</button>
+                </div>
+                <div id="apply-button-container">
+                    <button id="apply-button" onclick="noteCompletedFunction()">Appliquer</button>
+                </div>
+                <div id="finish-button-container">
+                    <button id="finish-button" onclick="finish()">Terminer</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="finish-screen" class="fade-in">
+            <p id="finish-screen-text">Voici vos résultats :</p>
+            <p id="finish-screen-difficulty" class="finish-screen-info">difficulty</p>
+            <p id="finish-screen-percentage" class="finish-screen-info">score</p>
+            <p id="finish-screen-score" class="finish-screen-info">percentage</p>
+            <div id="name-input-container">
+                <input type="text" id="name-input" placeholder="saisir votre nom">
+            </div>
+        </div>
+        <script src="exercise-1.js"></script>
+    </body>
+</html>
