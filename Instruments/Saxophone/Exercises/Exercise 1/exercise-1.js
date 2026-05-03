@@ -1,20 +1,20 @@
-var score = 0;
-var tries = 0;
-var exerciseDifficulty = `medium`;
-var timerStatus = true;
-var noteCompleted = false;
-var noteText = ``;
-var noteArray = [];
+var Score = 0;
+var Tries = 0;
+var ExerciseDifficulty = `medium`;
+var NoteCompleted = false;
+var NoteArray = [];
 var keysDict = {}
 
+// timer variables
 const display = document.getElementById("timer");
+var TimerStatus = true;
 let timer = null;
 let startTime = 0;
 let elapsedTime = 0;
 let isRunning = false;
 
 
-var keysDictHard={
+var keysDictHard = {
     "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
     "B3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-b-key"],
     "C4": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key"],
@@ -60,7 +60,7 @@ var keysDictHard={
     "Gb6alt": ["octave-key", "front-f-key", "key2", "high-fsharp-key"]
 };
 
-var keysDictMedium={
+var keysDictMedium = {
     "Bb3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-bb-key"],
     "B3": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key", "low-b-key"],
     "C4": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key"],
@@ -93,7 +93,7 @@ var keysDictMedium={
     "D6": ["octave-key", "palm-d-key"]
 };
 
-var keysDictEasy={
+var keysDictEasy = {
     "C4": ["key1", "key2", "key3", "key4", "key5", "key6", "low-c-key"],
     "D4": ["key1", "key2", "key3", "key4", "key5", "key6"],
     "E4": ["key1", "key2", "key3", "key4", "key5"],
@@ -110,47 +110,50 @@ var keysDictEasy={
     "G5": ["octave-key", "key1", "key2", "key3"]
 };
 
-var keysName={
-    "C": "Si♯/Do",
+var keysName = {
+    "C": "Do/(Si♯)",
     "Db": "Do♯/Ré♭",
     "D": "Ré",
     "Eb": "Ré♯/Mi♭",
-    "E": "Mi/Fa♭",
-    "F": "Mi♯/Fa",
+    "E": "Mi/(Fa♭)",
+    "F": "(Mi♯)/Fa",
     "Gb": "Fa♯/Sol♭",
     "G": "Sol",
     "Ab": "Sol♯/La♭",
     "A": "La",
     "Bb": "La♯/Si♭",
-    "B": "Si/Do♭",
-}
+    "B": "(Do♭)/Si",
+};
 
 
 
+// This function is called by html input to show the difficulties after the start button is clicked.
 function showDifficulties() {
     document.getElementById(`start-button-container`).style.display = `none`;
     document.getElementById(`difficulties`).style.display = `inline`;
 };
 
-function setDifficulty(specifiedDifficulty){
+// This function converts the exercise button input into setting the global exercise difficulty in the code, as well as the correct keysDict.
+function setDifficulty(specifiedDifficulty) {
     console.log(specifiedDifficulty)
     if (specifiedDifficulty == `easy`) {
-        exerciseDifficulty = `easy`
+        ExerciseDifficulty = `easy`
     } else if(specifiedDifficulty == `medium`) {
-        exerciseDifficulty = `medium`
+        ExerciseDifficulty = `medium`
     } else if (specifiedDifficulty == `hard`) {
-        exerciseDifficulty = `hard`
+        ExerciseDifficulty = `hard`
     }
 
-    if(exerciseDifficulty == `easy`) {
+    if(ExerciseDifficulty == `easy`) {
         keysDict = keysDictEasy;
-    } else if (exerciseDifficulty == `medium`) {
+    } else if (ExerciseDifficulty == `medium`) {
         keysDict = keysDictMedium;
-    } else if (exerciseDifficulty == `hard`) {
+    } else if (ExerciseDifficulty == `hard`) {
         keysDict = keysDictHard;
     };
-}
+};
 
+// This function activates the button when clicked and calls the function to add it to the NoteArray. It also does the opposite.
 function changeNoteImage(id) {
     const keyImage = document.getElementById(`${id}-image`);
     const keyInput = document.getElementById(`${id}-input`);
@@ -165,16 +168,18 @@ function changeNoteImage(id) {
     }
 };
 
-function addNoteToList(id){
-    noteArray.push(id)
+// This function converts html input to adding the selected note to the global NoteArray.
+function addNoteToList(id) {
+    NoteArray.push(id)
 };
 
-function removeNoteFromList(id){
-    noteArray.splice(id, 1)
+// This function converts html input to removing the selected note to the global NoteArray.
+function removeNoteFromList(id) {
+    NoteArray.splice(id, 1)
 };
 
 // This function generates a random note, gets its array and returns its name as well as its array.
-function generateNote(){
+function generateNote() {
     //Generate a random number, get the key and then access the value of that key
     randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length); // generate the random number
     var randomKey = Object.keys(keysDict)[randomNumber]; // get the note name (key)
@@ -183,8 +188,8 @@ function generateNote(){
     return [randomKey, randomKeyValue]
 }
 
-// This function deactivates all of the notes and clears the noteArray
-function reset(){
+// This function deactivates all of the notes and clears the NoteArray.
+function reset() {
     // Unchecks all of the checkboxes
     const elements = document.getElementsByClassName("input-key");
     for (let element of elements) {
@@ -197,30 +202,30 @@ function reset(){
         element2.style.display = `none`;
     }
 
-    noteArray = []
+    NoteArray = []
 }
 
-//This function verifies if the user's noteArray is the same as the desired noteArray.
-function noteVerify(note){
+//This function verifies if the user's NoteArray is the same as the desired NoteArray.
+function noteVerify(note) {
     /**
-     * For each fingering of a note, it checks if the noteArray includes that element.
-     * If it does, it removes the element out of the noteArray.
-     * If it doesn't, it adds a ­fail element to the noteArray, which makes it fail.
+     * For each fingering of a note, it checks if the NoteArray includes that element.
+     * If it does, it removes the element out of the NoteArray.
+     * If it doesn't, it adds a ­fail element to the NoteArray, which makes it fail.
      */
-    for (const element of note){
-        if (noteArray.includes(element)){
-            var index = noteArray.indexOf(element);
+    for (const element of note) {
+        if (NoteArray.includes(element)) {
+            var index = NoteArray.indexOf(element);
             removeNoteFromList(index)
         }
         else{
-            noteArray.push("fail")
+            NoteArray.push("fail")
             break;
         }
     }
 
 
-    //if noteArray is empty, it succeeds and increases the score
-    if (!Array.isArray(noteArray) || !noteArray.length){
+    //if NoteArray is empty, it succeeds and increases the S
+    if (!Array.isArray(NoteArray) || !NoteArray.length) {
         increaseScore();
     }
     else{
@@ -229,9 +234,9 @@ function noteVerify(note){
     reset();
 }
 
-// this function sets the note guess as completed. It gets called by the html once the user verifies their answer.
-function noteCompletedFunction(){
-    noteCompleted = true;
+// Makes the script go on once the user input is completed.
+function noteCompletedFunction() {
+    NoteCompleted = true;
 }
 
 // Sleep is needed to wait for the user to be done.
@@ -239,10 +244,11 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-// This function creates the next to be displayed when a random note is automatically picked for the user to know what to enter.
-function createNoteText(noteName){
+// This function creates the note to be displayed when a random note is automatically picked for the user to know what to enter.
+function createNoteText(noteName) {
+    var noteText = ``;
     originalNoteName = noteName
-    if(noteName.includes('alt')){
+    if(noteName.includes('alt')) {
         noteName = noteName.replace(`alt`, ``)
         noteText = `Note à inscrire: le doigté alternatif de`
     }
@@ -250,19 +256,19 @@ function createNoteText(noteName){
         noteText = `Note à inscrire: le doigté habituel de`
     }
 
-    if(noteName.includes('3')){
+    if(noteName.includes('3')) {
         noteText = noteText + ` ${noteName} (très grave)`
     }
 
-    else if(noteName.includes('4')){
+    else if(noteName.includes('4')) {
         noteText = noteText + ` ${noteName} (grave)`
     }
 
-    else if(noteName.includes('5')){
+    else if(noteName.includes('5')) {
         noteText = noteText + ` ${noteName} (aigu)`
     }
 
-    else if(noteName.includes('6')){
+    else if(noteName.includes('6')) {
         noteText = noteText + ` ${noteName} (très aigu)`
     }
 
@@ -271,46 +277,39 @@ function createNoteText(noteName){
     return noteText
 }
 
-
-function displayNoteText(noteText){
+// This function displays the created text.
+function displayNoteText(noteText) {
     const noteTextId = document.getElementById("note-text");
     noteTextId.textContent = noteText;
 }
 
-
-function increaseScore(){
+// This function increases the user's score and tries (if there was a successful input).
+function increaseScore() {
     const scoreTextId = document.getElementById("score-text");
-    score += 1;
-    tries += 1;
-    scoreTextId.textContent = `score: ${score}/${tries}`;
+    Score += 1;
+    Tries += 1;
+    scoreTextId.textContent = `score: ${Score}/${Tries}`;
 }
 
-function increaseTries(){
+// This function increases the user's tries only (if there was an unsuccessful input).
+function increaseTries() {
     const scoreTextId = document.getElementById("score-text");
-    tries += 1;
-    scoreTextId.textContent = `score: ${score}/${tries}`;
+    Tries += 1;
+    scoreTextId.textContent = `score: ${Score}/${Tries}`;
 }
 
-
-function startTimer(){
-    if(!isRunning){
+// This function starts the timer.
+function startTimer() {
+    if(!isRunning) {
         startTime = Date.now() - elapsedTime;
         timer = setInterval(updateTimer, 10);
         isRunning = true;
     }
 }
 
-
-function resetTimer(){
-    clearInterval(timer);
-    startTime = 0;
-    elapsedTime = 0;
-    isRunning = false;    
-    display.textContent = "00:00:00";
-}
-
-function updateTimer(){
-    if(timerStatus == true){
+// This function updates the timer constantly.
+function updateTimer() {
+    if(TimerStatus == true) {
         const currentTime = Date.now();
         elapsedTime = currentTime - startTime;
 
@@ -328,51 +327,39 @@ function updateTimer(){
     }
 }
 
-
-
-
-
-function finish(){
-    
-    //finish
-    //show image with difficulty, score, tries, name, ...
-
-    //actualize page
+// This function unloads the exercise and calls the function that builds the results.
+function finish() {
 
     document.getElementById(`main-container`).style.display = `none`;
-    document.getElementById(`saxophone-container`).style.display = `none`;
+    document.getElementById(`instrument-container`).style.display = `none`;
     document.getElementById(`finish-button-container`).style.display = `none`;
 
     document.getElementById(`finish-screen`).style.display = `block`;
     buildResults()
-
-
-
-
-
 }
 
-function buildResults(){
-    timerStatus = false;
+// This function builds the results to be shown on the finish page, and displays them.
+function buildResults() {
+    TimerStatus = false;
 
-    if(exerciseDifficulty == `easy`){
+    if(ExerciseDifficulty == `easy`) {
         difficultyName = `Façile`;
     }
-    else if(exerciseDifficulty == `medium`){
+    else if(ExerciseDifficulty == `medium`) {
         difficultyName = `Moyen`;
     }
-    else if(exerciseDifficulty == `hard`){
+    else if(ExerciseDifficulty == `hard`) {
         difficultyName = `Difficile`;
     }
 
     resultsDifficulty = `difficulté : ${difficultyName}`;
-    resultsScore = `score : ${score}/${tries}`;
+    resultsScore = `score : ${Score}/${Tries}`;
 
-    if(tries == 0){
+    if(Tries == 0) {
         percentage = 0
     }
     else{
-        percentage = Math.round((score/tries)*100)
+        percentage = Math.round((Score/Tries)*100)
     }
 
 
@@ -386,14 +373,12 @@ function buildResults(){
     scoreText.textContent = resultsScore;
 }
 
-
-
-
-async function startProgram(){
+// This is the main function, that manages visuals and that calls the right functions to keep the loop going.
+async function main() {
     document.getElementById(`difficulties`).style.display = `none`;
 
     document.getElementById(`main-container`).style.display = `inline`;
-    document.getElementById(`saxophone-container`).style.display = `inline`;
+    document.getElementById(`instrument-container`).style.display = `inline`;
     document.getElementById(`finish-button-container`).style.display = `inline`;
 
     document.getElementById(`timer`).style.display = `block`;
@@ -401,14 +386,16 @@ async function startProgram(){
     
     startTimer();
 
+    // Main loop (everytime there is a different note)
     while (true) {
-        let [noteName, randomKeyArray] = generateNote(exerciseDifficulty);
-        noteText = createNoteText(noteName);
+        let [noteName, randomKeyArray] = generateNote(ExerciseDifficulty);
+        var noteText = createNoteText(noteName);
         displayNoteText(noteText);
 
-        while (true){
-            if (noteCompleted == true) {
-                noteCompleted = false
+        // Every 300ms, it checks if the user verified the note.
+        while (true) {
+            if (NoteCompleted == true) {
+                NoteCompleted = false
                 break
             } else {
                 await sleep(300)

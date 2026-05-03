@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="fingerings.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="page-text-container">
+            <div id="page-title">
+                <h1>Revue des doigtées</h1>
+            </div>
+            <div id="page-description">
+                <h2>Révision des doigtés</h2>
+            </div>
+        </div>
+        
+        <div id="home-button">
+            <a href="../../../../index.html">
+                <img src="../../../../Images/home.png" draggable="false" height="40">
+            </a>
+        </div>
+
+
+        <div id="main-container">
+            <div id="instrument-container" class="fade-in">
+                <div id="note-text-container">
+                    <p id="note-text">
+                        Quel doigté voulez-vous réviser?
+                    </p>
+                </div>
+
+                <div id="instrument-image">
+                    <img src="../../Images/clarinet-fingerings.png" draggable="false" height="500px">
+                </div>
+                <div id="keys">
+                    <div id="key-1" class="key main-key">
+                        <input type="checkbox" id="key1-input" class="input-key main-input-key">
+                        <img id="key1-image" class="key-image" src="../../Images/Saxophone Keys/main-key.png" draggable="false">
+                    </div>
+
+                </div>
+                <div id="note-choice-container">
+                    <select id="note-choice">
+                    </select>
+                </div>
+                <div id="apply-button-container">
+                    <button id="apply-button" onclick="manageInput()">Vérifier</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="fingerings.js"></script>
+    </body>
+</html>

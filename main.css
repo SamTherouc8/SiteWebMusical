@@ -91,13 +91,15 @@ body {
     font-family:sans-serif;
 }
 
+#saxophone-image, #clarinet-image, #flute-image, #trumpet-image {
+    position: relative
+}
+
 #saxophone-image, #clarinet-image {
-    position: relative;
     height: 40vh;
 }
 
 #flute-image, #trumpet-image {
-    position: relative;
     width: 32vw;
     height: auto;
     left: 0vw;

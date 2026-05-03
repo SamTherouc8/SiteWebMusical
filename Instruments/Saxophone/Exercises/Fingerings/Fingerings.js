@@ -44,43 +44,25 @@ var keysDictHard={
     "Gb6alt": ["octave-key", "front-f-key", "key2", "high-fsharp-key"]
 };
 
-
-var keysName={
-    "C": "Si♯/Do",
+var keysName = {
+    "C": "Do/(Si♯)",
     "Db": "Do♯/Ré♭",
     "D": "Ré",
     "Eb": "Ré♯/Mi♭",
-    "E": "Mi/Fa♭",
-    "F": "Mi♯/Fa",
+    "E": "Mi/(Fa♭)",
+    "F": "(Mi♯)/Fa",
     "Gb": "Fa♯/Sol♭",
     "G": "Sol",
     "Ab": "Sol♯/La♭",
     "A": "La",
     "Bb": "La♯/Si♭",
-    "B": "Si/Do♭",
-}
+    "B": "(Do♭)/Si",
+};
 
-
-
-
-setList()
-
-function manageInput(){
-    reset()
-    var selectedNote = document.getElementById(`noteChoice`);
-    var noteName = selectedNote.value;
-    console.log(noteName);
-
-    var noteArray = keysDictHard[noteName];
-    console.log(noteArray);
-    
-    showNote(noteArray);
-}
-
-
-function createNoteText(noteName){
+// This function creates text for the note options inside of the list.
+function createNoteText(noteName) {
     originalNoteName = noteName
-    if(noteName.includes('alt')){
+    if(noteName.includes('alt')) {
         noteName = noteName.replace(`alt`, ``)
         noteText = `doigté alternatif de`
     }
@@ -88,33 +70,34 @@ function createNoteText(noteName){
         noteText = `doigté habituel de`
     }
 
-    if(noteName.includes('3')){
+    if(noteName.includes('3')) {
         noteText = noteText + ` ${noteName} (très grave)`
     }
 
-    else if(noteName.includes('4')){
+    else if(noteName.includes('4')) {
         noteText = noteText + ` ${noteName} (grave)`
     }
 
-    else if(noteName.includes('5')){
+    else if(noteName.includes('5')) {
         noteText = noteText + ` ${noteName} (aigu)`
     }
 
-    else if(noteName.includes('6')){
+    else if(noteName.includes('6')) {
         noteText = noteText + ` ${noteName} (très aigu)`
     }
 
     originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
     noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]}`)
     return noteText
-}
+};
 
-function setList(){
-    var notesList = document.getElementById(`noteChoice`)
+// This function sets the list of notes available to pick.
+function setList() {
+    var notesList = document.getElementById(`note-choice`)
     notesList.innerHTML = "";
 
     var optionArray = []
-    for (const note of Object.keys(keysDictHard)){
+    for (const note of Object.keys(keysDictHard)) {
         var option = `${note}|${createNoteText(note)}`
         optionArray.push(option)
     }
@@ -127,22 +110,27 @@ function setList(){
         notesList.options.add(newOption);
     }
 
-}
+};
 
+// This function takes the note the user selected, and calls the function to display it.
+function manageInput() {
+    reset()
+    var selectedNote = document.getElementById(`note-choice`);
+    var noteName = selectedNote.value;
+    var noteArray = keysDictHard[noteName];
+    
+    changeImage(noteArray);
+};
 
-function changeImage(id) {
-   //Get the checkbox
-    document.getElementById(`${id}-image`).style.display = `inline`;
-}
-
-function showNote(noteArray){
-    for (const note of noteArray){
-        changeImage(note)
+// This function activates the keys needing to be activated to display the fingering.
+function changeImage(noteArray) {
+    for (const note of noteArray) {
+        document.getElementById(`${note}-image`).style.display = `inline`;
     }
-}
+};
 
-
-function reset(){
+// This function deactivates all of the activated keys.
+function reset() {
     const elements = document.getElementsByClassName("input-key");
     for (let element of elements) {
         element.checked = false;
@@ -154,6 +142,10 @@ function reset(){
     }
 
     noteArray = []
-}
+};
 
+function main() {
+    setList()
+};
 
+main()
