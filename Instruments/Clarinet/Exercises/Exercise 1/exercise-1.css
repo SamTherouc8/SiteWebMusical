@@ -175,429 +175,128 @@ body {
 }
 
 
-.key {
-    position: relative;
-}
-
-.main-key {
-    width: 21px;
-    height: 20px;
-    left: 96px;
-}
-
-.input-key {
-    position: relative;
-    left: -4px;
-    top: -3px;
-    opacity: 0;
-}
-
 .key-image {
     position: absolute;
-    display: none;
-    z-index: -1;
-}
-
-#key1 {
-    top: -318px;
-}
-
-#key1-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key1-image {
-    width: 21px;
-    height: 20px;
-    left: 0.1px;
-    top: -0.1px;
-}
-
-#key2 {
-    top: -312px;
-}
-
-#key2-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key2-image {
-    width: 21px;
-    height: 20px;
-    top: 0px;
-    left: 0.1px;
-}
-
-#key3 {
-    top: -310px;
-}
-
-#key3-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key3-image {
-    width: 21px;
-    height: 20px;
-    top: -0.1px;
-    left: 0.3px;
-}
-
-#key4 {
-    top: -242.5px;
-}
-
-#key4-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key4-image {
-    width: 21px;
-    height: 20px;
-    top: 0.5px;
-    left: 0.3px;
-}
-
-#key5 {
-    top: -236px;
-}
-
-#key5-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key5-image {
-    width: 21px;
-    height: 20px;
-    top: -0.1px;
-    left: 0.3px;
-}
-
-#key6 {
-    top: -230px;
-}
-
-#key6-input {
-    width: 21px;
-    height: 20px;
-}
-
-#key6-image {
-    width: 21px;
-    height: 20px;
-    top: -0.1px;
-    left: 0.3px;
-}
-
-#low-c-key {
-    width: 30px;
-    height: 18px;
-    left: 89px;
-    top: -203px;
-}
-
-#low-c-key-input {
-    width: 30px;
-    height: 18px;
-}
-
-#low-c-key-image {
-    height: 19.6px;
-    top: -0.4px;
-    left: 0.7px;
-}
-
-#eb-key {
-    width: 30px;
-    height: 18px;
-    left: 89px;
-    top: -240px;
-}
-
-#eb-key-input {
-    width: 30px;
-    height: 18px;
-}
-
-#eb-key-image {
-    height: 16.8px;
-    top: 0px;
-    left: 0.7px;
-}
-
-#bb-key {
-    width: 15px;
-    height: 15px;
-    left: 114px;
-    top: -458px;
-}
-
-#bb-key-input {
-    width: 15px;
-    height: 15px;
-}
-
-#bb-key-image {
-    height: 11.3px;
-    top: 1.85px;
-    left: -0.65px;
-}
-
-#alt-bb-key {
-    width: 15px;
-    height: 25px;
-    left: 50px;
-    top: -370px;
-}
-
-#alt-bb-key-input {
-    width: 15px;
-    height: 25px;
-}
-
-#alt-bb-key-image {
-    height: 19.5px;
-    top: -0.6px;
-    left: 1.172px;
-}
-
-#alt-c-key {
-    width: 15px;
-    height: 20px;
-    left: 50px;
-    top: -413px;
-}
-
-#alt-c-key-input {
-    width: 15px;
-    height: 20px;
-}
-
-#alt-c-key-image {
-    height: 14.5px;
-    top: 0.8px;
-    left: 1.54px;
-}
-
-#high-e-key {
-    width: 15px;
-    height: 20px;
-    left: 50px;
-    top: -453px;
-}
-
-#high-e-key-input {
-    width: 15px;
-    height: 20px;
-}
-
-#high-e-key-image {
-    height: 15px;
-    top: 3.45px;
-    left: 1.6px;
-}
-
-#high-fsharp-key {
-    width: 15px;
-    height: 35px;
-    left: 78px;
-    top: -415px;
-}
-
-#high-fsharp-key-input {
-    width: 15px;
-    height: 35px;
-}
-
-#high-fsharp-key-image {
-    height: 34px;
-    top: 1.2px;
-    left: 1.98px;
-}
-
-#alt-fsharp-key {
-    width: 25px;
-    height: 17px;
-    left: 70px;
-    top: -413px;
-}
-
-#alt-fsharp-key-input {
-    width: 25px;
-    height: 17px;
-}
-
-#alt-fsharp-key-image {
-    height: 12px;
-    top: 3.22px;
-    left: 1.4px;
-}
-
-#octave-key {
-    width: 50px;
-    height: 50px;
-    left: 25px;
-    top: -610px;
-}
-
-#octave-key-input {
-    width: 50px;
-    height: 50px;
 }
 
 #octave-key-image {
-    height: 30px;
-    top: 7.9px;
-    left: 7.5px;
+    left: 51px;
+    top: 229px;
 }
 
-#front-f-key {
-    width: 25px;
-    height: 25px;
+#thumb-key-image {
+    left: 48px;
+    top: 273px;
+}
+
+#key-1-image {
     left: 96px;
-    top: -685px;
+    top: 256px;
 }
 
-#front-f-key-input {
-    width: 25px;
-    height: 25px;
+#key-2-image {
+    left: 96px;
+    top: 286px;
 }
 
-#front-f-key-image {
-    height: 26.7px;
-    top: 0px;
-    left: -0.1px;
+#key-3-image {
+    left: 98px;
+    top: 316px;
 }
 
-#palm-d-key {
-    width: 15px;
-    height: 25px;
-    left: 227px;
-    top: -665px;
+#key-4-image {
+    left: 96px;
+    top: 396px;
 }
 
-#palm-d-key-input {
-    width: 15px;
-    height: 25px;
+#key-5-image {
+    left: 96px;
+    top: 426px;
 }
 
-#palm-d-key-image {
-    height: 24px;
-    top: 0px;
-    left: -0.45px;
+#key-6-image {
+    left: 96px;
+    top: 456px;
 }
 
-#palm-dsharp-key {
-    width: 15px;
-    height: 25px;
-    left: 215px;
-    top: -710px;
+#A-key-image {
+    left: 100.5px;
+    top: 231px;
 }
 
-#palm-dsharp-key-input {
-    width: 15px;
-    height: 25px;
+#G-sharp-key-image {
+    left: 121px;
+    top: 234px;
 }
 
-#palm-dsharp-key-image {
-    height: 24.2px;
-    top: 2.9px;
-    left: 0.5px;
+#D-sharp-key-image {
+    left: 101px;
+    top: 307px;
 }
 
-#palm-f-key {
-    width: 15px;
-    height: 25px;
-    left: 210px;
-    top: -710px;
+#C-sharp-key-image {
+    left: 107px;
+    top: 331px;
 }
 
-#palm-f-key-input {
-    width: 15px;
-    height: 25px;
+#B-key-image {
+    left: 80px;
+    top: 446px;
 }
 
-#palm-f-key-image {
-    height: 24px;
-    top: -1.4px;
-    left: -1px;
+#side-1-image {
+    left: 66px;
+    top: 396px;
 }
 
-#gsharp-key {
-    width: 30px;
-    height: 15px;
-    left: 200px;
-    top: -710px;
+#side-2-image {
+    left: 66px;
+    top: 386px;
 }
 
-#gsharp-key-input {
-    width: 30px;
-    height: 15px;
+#side-3-image {
+    left: 66px;
+    top: 376px;
 }
 
-#gsharp-key-image {
-    height: 13.3px;
-    top: 3.3px;
-    left: -0.1px;
+#side-4-image {
+    left: 66px;
+    top: 366px;
 }
 
-#low-b-key {
-    width: 15px;
-    height: 15px;
-    left: 202px;
-    top: -709px;
+#F-left-key-image {
+    left: 127px;
+    top: 342px;
 }
 
-#low-b-key-input {
-    width: 15px;
-    height: 15px;
+#F-sharp-left-key-image {
+    left: 132px;
+    top: 353px;
 }
 
-#low-b-key-image {
-    height: 16.3px;
-    top: 0.5px;
-    left: -0.9px;
+#E-left-key-image {
+    left: 115px;
+    top: 352px;
 }
 
-#low-bb-key {
-    width: 30px;
-    height: 20px;
-    left: 206px;
-    top: -712px;
+#F-right-key-image {
+    left: 96px;
+    top: 490px;
 }
 
-#low-bb-key-input {
-    width: 30px;
-    height: 20px;
+#F-sharp-right-key-image {
+    left: 82px;
+    top: 489px;
 }
 
-#low-bb-key-image {
-    height: 21.4px;
-    top: -2px;
-    left: 0px;
+#E-right-key-image {
+    left: 80px;
+    top: 504px;
 }
 
-#low-csharp-key {
-    width: 15px;
-    height: 15px;
-    left: 217px;
-    top: -748px;
-}
-
-#low-csharp-key-input {
-    width: 15px;
-    height: 15px;
-}
-
-#low-csharp-key-image {
-    height: 18.8px;
-    top: -2px;
-    left: -1.3px;
+#G-sharp-right-key-image {
+    left: 94px;
+    top: 505px;
 }
 
 

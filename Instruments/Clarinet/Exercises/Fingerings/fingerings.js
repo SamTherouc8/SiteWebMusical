@@ -63,24 +63,30 @@ var keysDictVeryHard = {
 
 var keysName = {
     "C": "Do/(Si♯)",
-    "Db": "Do♯/Ré♭",
+    "C-sharp": "Do♯/Ré♭",
     "D": "Ré",
-    "Eb": "Ré♯/Mi♭",
+    "D-sharp": "Ré♯/Mi♭",
     "E": "Mi/(Fa♭)",
     "F": "(Mi♯)/Fa",
-    "Gb": "Fa♯/Sol♭",
+    "F-sharp": "Fa♯/Sol♭",
     "G": "Sol",
-    "Ab": "Sol♯/La♭",
+    "G-sharp": "Sol♯/La♭",
     "A": "La",
-    "Bb": "La♯/Si♭",
+    "A-sharp": "La♯/Si♭",
     "B": "(Do♭)/Si",
 };
+
+//function test(id) {
+//    document.getElementById(id).scr = `../../Images/Clarinet Keys/${id.replace("-image", "")}-activated.png`;
+//    console.log(1)
+//}
+
 
 // This function creates text for the note options inside of the list.
 function createNoteText(noteName) {
     originalNoteName = noteName
-    if(noteName.includes('alt')) {
-        noteName = noteName.replace(`alt`, ``)
+    if(noteName.includes('-alt')) {
+        noteName = noteName.replace(`-alt`, ``)
         noteText = `doigté alternatif de`
     }
     else{
@@ -103,7 +109,9 @@ function createNoteText(noteName) {
         noteText = noteText + ` ${noteName} (très aigu)`
     }
 
-    originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
+    originalNoteName = originalNoteName.replace(`-alt`, ``).replace(/[0-9]/g, '')
+    //console.log(1, originalNoteName)
+    //console.log(2, keysName[originalNoteName])
     noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]}`)
     return noteText
 };
