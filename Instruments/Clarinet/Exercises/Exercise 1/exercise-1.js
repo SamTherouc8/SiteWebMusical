@@ -3,7 +3,7 @@ var Tries = 0;
 var ExerciseDifficulty = `medium`;
 var NoteCompleted = false;
 var NoteArray = [];
-var keysDict = {}
+var notesDict = {}
 
 // timer variables
 const display = document.getElementById("timer");
@@ -14,7 +14,7 @@ let elapsedTime = 0;
 let isRunning = false;
 
 
-var keysDictVeryHard = {
+var notesDictVeryHard = {
     "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
     "E3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
     "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
@@ -76,7 +76,7 @@ var keysDictVeryHard = {
     "G6": ["octave-key", "thumb-key", "key-2", "key-4", "key-5", "G-sharp-right-key"],
 };
 
-var keyDictHard = {
+var notesDictHard = {
     "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
     "E3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
     "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
@@ -128,7 +128,7 @@ var keyDictHard = {
     "D6": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "G-sharp-right-key"],
 }
 
-var keysDictMedium = {
+var notesDictMedium = {
     "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
     "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
     "F3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
@@ -158,7 +158,7 @@ var keysDictMedium = {
     "F5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4"]
 };
 
-var keysDictEasy = {
+var notesDictEasy = {
     "G3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
     "A3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
     "A3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4"],
@@ -169,24 +169,25 @@ var keysDictEasy = {
     "F4": ["thumb-key"],
     "F4-sharp": ["key-1"],
     "G4": [],
-    "G4-sharp": ["G-sharp-key"],
     "A4": ["A-key"],
 };
 
-var keysName = {
+const notesName = {
     "C": "Do/(Si♯)",
-    "Db": "Do♯/Ré♭",
+    "C-sharp": "Do♯/Ré♭",
     "D": "Ré",
-    "Eb": "Ré♯/Mi♭",
+    "D-sharp": "Ré♯/Mi♭",
     "E": "Mi/(Fa♭)",
     "F": "(Mi♯)/Fa",
-    "Gb": "Fa♯/Sol♭",
+    "F-sharp": "Fa♯/Sol♭",
     "G": "Sol",
-    "Ab": "Sol♯/La♭",
+    "G-sharp": "Sol♯/La♭",
     "A": "La",
-    "Bb": "La♯/Si♭",
+    "A-sharp": "La♯/Si♭",
     "B": "(Do♭)/Si",
 };
+
+var keysList = ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "A-key", "G-sharp-key", "D-sharp-key", "C-sharp-key", "B-key", "side-1", "side-2", "side-3", "side-4", "F-left-key", "F-sharp-left-key", "E-left-key", "F-right-key", "F-sharp-right-key", "E-right-key", "G-sharp-right-key"]
 
 
 
@@ -208,11 +209,11 @@ function setDifficulty(specifiedDifficulty) {
     }
 
     if(ExerciseDifficulty == `easy`) {
-        keysDict = keysDictEasy;
+        notesDict = notesDictEasy;
     } else if (ExerciseDifficulty == `medium`) {
-        keysDict = keysDictMedium;
+        notesDict = notesDictMedium;
     } else if (ExerciseDifficulty == `hard`) {
-        keysDict = keysDictHard;
+        notesDict = keysDictHard;
     };
 };
 
@@ -244,9 +245,9 @@ function removeNoteFromList(id) {
 // This function generates a random note, gets its array and returns its name as well as its array.
 function generateNote() {
     //Generate a random number, get the key and then access the value of that key
-    randomNumber = Math.floor(Math.random() * Object.keys(keysDict).length); // generate the random number
-    var randomKey = Object.keys(keysDict)[randomNumber]; // get the note name (key)
-    randomKeyValue = keysDict[randomKey] // get the note array (value)
+    randomNumber = Math.floor(Math.random() * Object.keys(notesDict).length); // generate the random number
+    var randomKey = Object.keys(notesDict)[randomNumber]; // get the note name (key)
+    randomKeyValue = notesDict[randomKey] // get the note array (value)
 
     return [randomKey, randomKeyValue]
 }
@@ -336,7 +337,7 @@ function createNoteText(noteName) {
     }
 
     originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
-    noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]} `)
+    noteText = noteText.replace(`${originalNoteName}`, `${notesName[originalNoteName]} `)
     return noteText
 }
 

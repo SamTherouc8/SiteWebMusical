@@ -1,4 +1,4 @@
-var keysDictVeryHard = {
+const notesDictVeryHard = {
     "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
     "E3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
     "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
@@ -61,7 +61,7 @@ var keysDictVeryHard = {
     "G6-alt": ["octave-key", "key-2", "key-3", "key-4", "G-sharp-right-key"]
 };
 
-var keysName = {
+const notesName = {
     "C": "Do/(Si♯)",
     "C-sharp": "Do♯/Ré♭",
     "D": "Ré",
@@ -76,101 +76,96 @@ var keysName = {
     "B": "(Do♭)/Si",
 };
 
-//function test(id) {
-//    document.getElementById(id).scr = `../../Images/Clarinet Keys/${id.replace("-image", "")}-activated.png`;
-//    console.log(1)
-//}
+const keysList = ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "A-key",
+    "G-sharp-key", "D-sharp-key", "C-sharp-key", "B-key", "side-1", "side-2", "side-3", "side-4", "F-left-key",
+    "F-sharp-left-key", "E-left-key", "F-right-key", "F-sharp-right-key", "E-right-key", "G-sharp-right-key"]
+
+function changeKeyUrl(id) {
+    document.getElementById(id).scr = `../../Images/Clarinet Keys/activated/${id.replace(`-image`, ``)}.png`;
+}
 
 
 // This function creates text for the note options inside of the list.
 function createNoteText(noteName) {
-    originalNoteName = noteName
+    originalNoteName = noteName 
     if(noteName.includes('-alt')) {
-        noteName = noteName.replace(`-alt`, ``)
-        noteText = `doigté alternatif de`
+        noteName = noteName.replace(`-alt`, ``) 
+        originalNoteName = originalNoteName.replace(`-alt`, ``) 
+        noteText = `doigté alternatif de` 
     }
     else{
         noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')) {
-        noteText = noteText + ` ${noteName} (très grave)`
+        noteText = noteText + ` ${noteName} 3 (très grave)`
     }
 
     else if(noteName.includes('4')) {
-        noteText = noteText + ` ${noteName} (grave)`
+        noteText = noteText + ` ${noteName} 4 (grave)`
     }
 
     else if(noteName.includes('5')) {
-        noteText = noteText + ` ${noteName} (aigu)`
+        noteText = noteText + ` ${noteName} 5 (aigu)` 
     }
 
     else if(noteName.includes('6')) {
-        noteText = noteText + ` ${noteName} (très aigu)`
+        noteText = noteText + ` ${noteName} 6 (très aigu)`
     }
 
-    originalNoteName = originalNoteName.replace(`-alt`, ``).replace(/[0-9]/g, '')
-    //console.log(1, originalNoteName)
-    //console.log(2, keysName[originalNoteName])
-    noteText = noteText.replace(`${originalNoteName}`, `${keysName[originalNoteName]}`)
+    noteName = notesName[noteName.replace(/[0-9]/, ``)] 
+    noteText = noteText.replace(`${originalNoteName}`, `${noteName}`)
     return noteText
 };
 
 // This function sets the list of notes available to pick.
 function setList() {
-    var notesList = document.getElementById(`note-choice`)
+    const notesList = document.getElementById(`note-choice`)
     notesList.innerHTML = "";
 
-    var optionArray = []
-    for (const note of Object.keys(keysDictVeryHard)) {
-        var option = `${note}|${createNoteText(note)}`
+    const optionArray = []
+    for (const note of Object.keys(notesDictVeryHard)) {
+        const option = `${note}|${createNoteText(note)}`
         optionArray.push(option)
     }
 
-    for(var option in optionArray) {
-        var pair = optionArray[option].split("|");
-        var newOption = document.createElement("option");
+    for(const option in optionArray) {
+        const pair = optionArray[option].split("|");
+        const newOption = document.createElement("option");
         newOption.value = pair[0];
         newOption.innerHTML = pair[1];
         notesList.options.add(newOption);
     }
 
-};
+}
 
 // This function takes the note the user selected, and calls the function to display it.
 function manageInput() {
     reset()
-    var selectedNote = document.getElementById(`note-choice`);
-    var noteName = selectedNote.value;
-    var noteArray = keysDictVeryHard[noteName];
+    const selectedNote = document.getElementById(`note-choice`);
+    const noteName = selectedNote.value;
+    const noteArray = notesDictVeryHard[noteName];
     
     changeImage(noteArray);
-};
+}
+
 
 // This function activates the keys needing to be activated to display the fingering.
 function changeImage(noteArray) {
     for (const note of noteArray) {
-        document.getElementById(`${note}-image`).style.display = `inline`;
+        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/activated/${note}.png`;
     }
-};
+}
 
-// This function deactivates all of the activated keys.
+// This function deactivates all the activated keys.
 function reset() {
-    const elements = document.getElementsByClassName("input-key");
-    for (let element of elements) {
-        element.checked = false;
+    for (const note of keysList) {
+        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/${note}.png`;
     }
+}
 
-    const elements2 = document.getElementsByClassName("key-image");
-    for (let element2 of elements2) {
-        element2.style.display = `none`;
-    }
-
-    noteArray = []
-};
-
-function main() {
+function mainProgram() {
     setList()
-};
+}
 
-main()
+mainProgram()
