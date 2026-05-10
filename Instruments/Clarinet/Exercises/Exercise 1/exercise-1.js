@@ -199,36 +199,35 @@ function showDifficulties() {
 
 // This function converts the exercise button input into setting the global exercise difficulty in the code, as well as the correct keysDict.
 function setDifficulty(specifiedDifficulty) {
-    console.log(specifiedDifficulty)
     if (specifiedDifficulty == `easy`) {
         ExerciseDifficulty = `easy`
     } else if(specifiedDifficulty == `medium`) {
         ExerciseDifficulty = `medium`
     } else if (specifiedDifficulty == `hard`) {
         ExerciseDifficulty = `hard`
+    } else if (specifiedDifficulty == `very-hard`) {
+        ExerciseDifficulty = `very-hard`
     }
 
-    if(ExerciseDifficulty == `easy`) {
+    if(specifiedDifficulty == `easy`) {
         notesDict = notesDictEasy;
-    } else if (ExerciseDifficulty == `medium`) {
+    } else if (specifiedDifficulty == `medium`) {
         notesDict = notesDictMedium;
-    } else if (ExerciseDifficulty == `hard`) {
-        notesDict = keysDictHard;
+    } else if (specifiedDifficulty == `hard`) {
+        notesDict = notesDictHard;
+    } else if (specifiedDifficulty == `very-hard`) {
+        notesDict = notesDictVeryHard;
     };
 };
 
 // This function activates the button when clicked and calls the function to add it to the NoteArray. It also does the opposite.
 function changeNoteImage(id) {
-    const keyImage = document.getElementById(`${id}-image`);
-    const keyInput = document.getElementById(`${id}-input`);
-    if (keyInput.checked) {
-        console.log('now checked')
-        keyImage.style.display = `inline`;
-        addNoteToList(id)
-    } else if (keyInput.checked == false) {
-        console.log('now unckecked')
-        keyImage.style.display = `none`;
+    if (document.getElementById(`${id}-image`).src.includes(`/activated/`)) {
+        document.getElementById(`${id}-image`).src=`../../Images/Clarinet Keys/${id}.png`;
         removeNoteFromList(id)
+    } else {
+        document.getElementById(`${id}-image`).src=`../../Images/Clarinet Keys/activated/${id}.png`;
+        addNoteToList(id)
     }
 };
 
@@ -239,7 +238,10 @@ function addNoteToList(id) {
 
 // This function converts html input to removing the selected note to the global NoteArray.
 function removeNoteFromList(id) {
-    NoteArray.splice(id, 1)
+    const index = NoteArray.indexOf(id);
+    if (index > -1) { //only remove it if it's found
+        NoteArray.splice(index, 1);
+        }
 };
 
 // This function generates a random note, gets its array and returns its name as well as its array.
@@ -254,32 +256,24 @@ function generateNote() {
 
 // This function deactivates all of the notes and clears the NoteArray.
 function reset() {
-    // Unchecks all of the checkboxes
-    const elements = document.getElementsByClassName("input-key");
-    for (let element of elements) {
-        element.checked = false;
+    for (const note of keysList) {
+        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/${note}.png`;
     }
-
-    // Hides all of the images
-    const elements2 = document.getElementsByClassName("key-image");
-    for (let element2 of elements2) {
-        element2.style.display = `none`;
-    }
-
     NoteArray = []
-}
+};
 
 //This function verifies if the user's NoteArray is the same as the desired NoteArray.
 function noteVerify(note) {
-    /**
+    /*
      * For each fingering of a note, it checks if the NoteArray includes that element.
      * If it does, it removes the element out of the NoteArray.
      * If it doesn't, it adds a ­fail element to the NoteArray, which makes it fail.
      */
+    console.log(`needed : ` + note)
+    console.log(`selected : ` + NoteArray)
     for (const element of note) {
         if (NoteArray.includes(element)) {
-            var index = NoteArray.indexOf(element);
-            removeNoteFromList(index)
+            removeNoteFromList(element)
         }
         else{
             NoteArray.push("fail")
@@ -310,36 +304,36 @@ function sleep(ms) {
 
 // This function creates the note to be displayed when a random note is automatically picked for the user to know what to enter.
 function createNoteText(noteName) {
-    var noteText = ``;
-    originalNoteName = noteName
-    if(noteName.includes('alt')) {
-        noteName = noteName.replace(`alt`, ``)
-        noteText = `Note à inscrire: le doigté alternatif de`
+    originalNoteName = noteName 
+    if(noteName.includes('-alt')) {
+        noteName = noteName.replace(`-alt`, ``) 
+        originalNoteName = originalNoteName.replace(`-alt`, ``) 
+        noteText = `doigté alternatif de` 
     }
     else{
-        noteText = `Note à inscrire: le doigté habituel de`
+        noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')) {
-        noteText = noteText + ` ${noteName} (très grave)`
+        noteText = noteText + ` ${noteName} 3 (très grave)`
     }
 
     else if(noteName.includes('4')) {
-        noteText = noteText + ` ${noteName} (grave)`
+        noteText = noteText + ` ${noteName} 4 (grave)`
     }
 
     else if(noteName.includes('5')) {
-        noteText = noteText + ` ${noteName} (aigu)`
+        noteText = noteText + ` ${noteName} 5 (aigu)` 
     }
 
     else if(noteName.includes('6')) {
-        noteText = noteText + ` ${noteName} (très aigu)`
+        noteText = noteText + ` ${noteName} 6 (très aigu)`
     }
 
-    originalNoteName = originalNoteName.replace(`alt`, ``).replace(/[0-9]/g, '')
-    noteText = noteText.replace(`${originalNoteName}`, `${notesName[originalNoteName]} `)
+    noteName = notesName[noteName.replace(/[0-9]/, ``)] 
+    noteText = noteText.replace(`${originalNoteName}`, `${noteName}`)
     return noteText
-}
+};
 
 // This function displays the created text.
 function displayNoteText(noteText) {
@@ -408,12 +402,12 @@ function buildResults() {
 
     if(ExerciseDifficulty == `easy`) {
         difficultyName = `Façile`;
-    }
-    else if(ExerciseDifficulty == `medium`) {
+    } else if(ExerciseDifficulty == `medium`) {
         difficultyName = `Moyen`;
-    }
-    else if(ExerciseDifficulty == `hard`) {
+    } else if(ExerciseDifficulty == `hard`) {
         difficultyName = `Difficile`;
+    } else if(ExerciseDifficulty == `very-hard`) {
+        difficultyName = `Très Difficile`;
     }
 
     resultsDifficulty = `difficulté : ${difficultyName}`;

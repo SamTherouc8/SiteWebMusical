@@ -217,7 +217,6 @@ function setDifficulty(specifiedDifficulty) {
         notesDict = notesDictHard;
     } else if (specifiedDifficulty == `very-hard`) {
         notesDict = notesDictVeryHard;
-        console.log(`k`)
     };
 };
 
@@ -381,6 +380,7 @@ function finish() {
 // This function builds the results to be shown on the finish page, and displays them.
 function buildResults() {
     TimerStatus = false;
+    let difficultyName = ``
 
     if(ExerciseDifficulty == `easy`) {
         difficultyName = `Façile`;
@@ -388,14 +388,12 @@ function buildResults() {
         difficultyName = `Moyen`;
     } else if(ExerciseDifficulty == `hard`) {
         difficultyName = `Difficile`;
-    } else if(ExerciseDifficulty == `vary-hard`) {
+    } else if(ExerciseDifficulty == `very-hard`) {
         difficultyName = `Très Difficile`;
     }
 
-    console.log(difficultyName)
-    resultsDifficulty = `difficulté : ${difficultyName}`;
-    console.log(resultsDifficulty)
-    resultsScore = `score : ${Score}/${Tries}`;
+    let resultsDifficulty = `difficulté : ${difficultyName}`;
+    let resultsScore = `score : ${Score}/${Tries}`;
 
     if(Tries == 0) {
         percentage = 0
@@ -429,7 +427,6 @@ async function main() {
     while(true) {
         let noteName = generateNote(notesDict);
         NoteArray = notesDict[noteName];
-        console.log(NoteArray)
         showNote(NoteArray)
         setList()
 
