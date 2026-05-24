@@ -77,99 +77,103 @@ var notesDictVeryHard = {
 };
 
 var notesDictHard = {
-    "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "E3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
-    "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "F3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-left-key"],
-    "F3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "F3-sharp-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-sharp-right-key"],
-    "G3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "G3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "A3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "A3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "B3": ["thumb-key", "key-1", "key-2", "key-3", "key-5"],
-    "B3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "B-key"],
-    "C4": ["thumb-key", "key-1", "key-2", "key-3"],
-    "C4-sharp": ["thumb-key", "key-1", "key-2", "key-3", "C-sharp-key"],
-    "D4": ["thumb-key", "key-1", "key-2"],
-    "D4-sharp": ["thumb-key", "key-1", "key-2", "side-1"],
-    "D4-sharp-alt": ["thumb-key", "key-1", "key-2", "D-sharp-key"],
-    "E4": ["thumb-key", "key-1"],
-    "F4": ["thumb-key"],
-    "F4-sharp": ["key-1"],
-    "F4-sharp-alt": ["thumb-key", "side-1", "side-2"],
-    "G4": [],
-    "G4-sharp": ["G-sharp-key"],
-    "A4": ["A-key"],
-    "A4-sharp": ["octave-key", "A-key"],
-    "A4-sharp-alt": ["A-key", "side-3"],
+    "C4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key", "C-key"], 
+    "C4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key"], 
+    "D4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F4-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F4-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G4": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A4": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A4-sharp-alt": ["thumb-2", "key-1", "D-sharp-key"],
+    "A4-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B4": ["thumb-1", "key-1", "D-sharp-key"],
 
-    "B4": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "B4-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
-    "C5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "C5-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-left-key"],
-    "C5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "C5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-sharp-right-key"],
-    "D5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "D5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "E5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "F5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "F5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-5"],
-    "F5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "B-key"],
-    "G5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3"],
-    "G5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "C-sharp-key"],
-    "A5": ["octave-key", "thumb-key", "key-1", "key-2"],
-    "A5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "side-1"],
-    "A5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "D-sharp-key"],
-    "B5": ["octave-key", "thumb-key", "key-1"],
-    "C6": ["octave-key", "thumb-key"],
+    "C5": ["key-1", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F5-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F5-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A5-sharp-alt": ["thumb-2", "key-1", "D-sharp-key"],
+    "A5-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B5": ["thumb-1", "key-1", "D-sharp-key"],
 
-    "C6-sharp": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "key-5"],
-    "D6": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "G-sharp-right-key"],
+    "C6": ["key-1", "D-sharp-key"],
+    "C6-sharp": ["D-sharp-key"],
+    "D6": ["thumb-1", "key-2", "key-3", "D-sharp-key"],
+    "D6-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E6": ["thumb-1", "key-1", "key-2", "key-4", "key-5", "D-sharp-key"],
+    "F6": ["thumb-1", "key-1", "key-3", "key-4", "D-sharp-key"],
+    "F6-sharp": ["thumb-1", "key-1", "key-3", "key-6", "D-sharp-key"],
+    "G6": ["key-1", "key-2", "key-3", "D-sharp-key"],
+    "G6-sharp": ["key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A6": ["thumb-1", "key-2", "key-4", "D-sharp-key"],
+    "A6-sharp": ["thumb-1", "key-4", "trill-1"],
+    "B6": ["thumb-1", "key-1", "key-3", "trill-2"],
+
+    "C7": ["key-1", "key-2", "key-3", "G-sharp-key", "key-4"]
 }
 
 var notesDictMedium = {
-    "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "F3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "G3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "G3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "A3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "A3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "B3": ["thumb-key", "key-1", "key-2", "key-3", "key-5"],
-    "C4": ["thumb-key", "key-1", "key-2", "key-3"],
-    "C4-sharp": ["thumb-key", "key-1", "key-2", "key-3", "C-sharp-key"],
-    "D4": ["thumb-key", "key-1", "key-2"],
-    "D4-sharp": ["thumb-key", "key-1", "key-2", "side-1"],
-    "E4": ["thumb-key", "key-1"],
-    "F4": ["thumb-key"],
-    "F4-sharp": ["key-1"],
-    "G4": [],
-    "G4-sharp": ["G-sharp-key"],
-    "A4": ["A-key"],
-    "A4-sharp": ["octave-key", "A-key"],
+    "C4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key", "C-key"],
+    "C4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key"], 
+    "D4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F4-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F4-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G4": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A4": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A4-sharp-alt": ["thumb-2", "key-1", "D-sharp-key"],
+    "A4-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B4": ["thumb-1", "key-1", "D-sharp-key"],
 
-    "B4": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "C5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "C5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "D5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "D5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "E5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "F5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4"]
+    "C5": ["key-1", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F5-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F5-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A5-sharp-alt": ["thumb-2", "key-1", "D-sharp-key"],
+    "A5-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B5": ["thumb-1", "key-1", "D-sharp-key"],
 };
 
 var notesDictEasy = {
-    "C4": ["thumb-key", "key-1", "key-2", "key-3"],
-    "D4": ["thumb-key", "key-1", "key-2"],
-    "E4": ["thumb-key", "key-1"],
-    "F4": ["thumb-key"],
-    "F4-sharp": ["key-1"],
-    "G4": [],
-    "A4": ["A-key"],
-    "A4-sharp": ["octave-key", "A-key"],
-
-    "B4": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "C5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
 };
 
 const notesName = {
@@ -187,7 +191,7 @@ const notesName = {
     "B": "(Do♭)/Si",
 };
 
-var keysList = ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "A-key", "G-sharp-key", "D-sharp-key", "C-sharp-key", "B-key", "side-1", "side-2", "side-3", "side-4", "F-left-key", "F-sharp-left-key", "E-left-key", "F-right-key", "F-sharp-right-key", "E-right-key", "G-sharp-right-key"]
+var keysList = ["thumb-1", "thumb-2", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-key", "A-sharp-trill-key", "trill-1", "trill-2", "D-sharp-key", "C-sharp-key", "C-key", "B-key"]
 
 
 
@@ -205,8 +209,6 @@ function setDifficulty(specifiedDifficulty) {
         ExerciseDifficulty = `medium`
     } else if (specifiedDifficulty == `hard`) {
         ExerciseDifficulty = `hard`
-    } else if (specifiedDifficulty == `very-hard`) {
-        ExerciseDifficulty = `very-hard`
     }
 
     if(specifiedDifficulty == `easy`) {
@@ -215,18 +217,16 @@ function setDifficulty(specifiedDifficulty) {
         notesDict = notesDictMedium;
     } else if (specifiedDifficulty == `hard`) {
         notesDict = notesDictHard;
-    } else if (specifiedDifficulty == `very-hard`) {
-        notesDict = notesDictVeryHard;
-    };
+    }
 };
 
 // This function activates the button when clicked and calls the function to add it to the NoteArray. It also does the opposite.
 function changeNoteImage(id) {
     if (document.getElementById(`${id}-image`).src.includes(`/activated/`)) {
-        document.getElementById(`${id}-image`).src=`../../Images/Clarinet Keys/${id}.png`;
+        document.getElementById(`${id}-image`).src=`../../Images/Flute Keys/${id}.png`;
         removeNoteFromList(id)
     } else {
-        document.getElementById(`${id}-image`).src=`../../Images/Clarinet Keys/activated/${id}.png`;
+        document.getElementById(`${id}-image`).src=`../../Images/Flute Keys/activated/${id}.png`;
         addNoteToList(id)
     }
 };
@@ -257,7 +257,7 @@ function generateNote() {
 // This function deactivates all of the notes and clears the NoteArray.
 function reset() {
     for (const note of keysList) {
-        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/${note}.png`;
+        document.getElementById(`${note}-image`).src=`../../Images/Flute Keys/${note}.png`;
     }
     NoteArray = []
 };
@@ -309,25 +309,24 @@ function createNoteText(noteName) {
         noteName = noteName.replace(`-alt`, ``) 
         originalNoteName = originalNoteName.replace(`-alt`, ``) 
         noteText = `doigté alternatif de` 
-    }
-    else{
+    } else if(noteName.includes('-trill')) {
+        noteName = noteName.replace(`-trill`, ``) 
+        originalNoteName = originalNoteName.replace(`-trill`, ``) 
+        noteText = `doigté trille de` 
+    } else{
         noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')) {
         noteText = noteText + ` ${noteName} 3 (très grave)`
-    }
-
-    else if(noteName.includes('4')) {
+    } else if(noteName.includes('4')) {
         noteText = noteText + ` ${noteName} 4 (grave)`
-    }
-
-    else if(noteName.includes('5')) {
-        noteText = noteText + ` ${noteName} 5 (aigu)` 
-    }
-
-    else if(noteName.includes('6')) {
+    } else if(noteName.includes('5')) {
+        noteText = noteText + ` ${noteName} 5` 
+    } else if(noteName.includes('6')) {
         noteText = noteText + ` ${noteName} 6 (très aigu)`
+    } else if(noteName.includes('7')) {
+        noteText = noteText + ` ${noteName} 7 (extrêmement aigu)`
     }
 
     noteName = notesName[noteName.replace(/[0-9]/, ``)] 
@@ -406,8 +405,6 @@ function buildResults() {
         difficultyName = `Moyen`;
     } else if(ExerciseDifficulty == `hard`) {
         difficultyName = `Difficile`;
-    } else if(ExerciseDifficulty == `very-hard`) {
-        difficultyName = `Très Difficile`;
     }
 
     resultsDifficulty = `difficulté : ${difficultyName}`;

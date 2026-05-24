@@ -159,17 +159,17 @@ var notesDictMedium = {
 };
 
 var notesDictEasy = {
-    "G3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "A3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "A3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "B3": ["thumb-key", "key-1", "key-2", "key-3", "key-5"],
     "C4": ["thumb-key", "key-1", "key-2", "key-3"],
     "D4": ["thumb-key", "key-1", "key-2"],
     "E4": ["thumb-key", "key-1"],
     "F4": ["thumb-key"],
     "F4-sharp": ["key-1"],
     "G4": [],
-    "A4": ["A-key"]
+    "A4": ["A-key"],
+    "A4-sharp": ["octave-key", "A-key"],
+
+    "B4": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
+    "C5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
 };
 
 const notesName = {

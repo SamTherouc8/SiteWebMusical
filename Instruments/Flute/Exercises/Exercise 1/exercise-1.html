@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="exercise-1.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="page-text-container">
+            <div id="page-title">
+                <h1>Exercice 1</h1>
+            </div>
+            <div id="page-description">
+                <h2>Indiquer le doigté à partir de la note</h2>
+            </div>
+        </div>
+        
+        <div id="home-button">
+            <a href="../../../../index.html"><img src="../../../../Images/home.png" height="40" draggable="false"></a>
+        </div>
+
+        <div>
+            <div id="timer">
+                00:00:00
+            </div>
+        </div>
+
+        <div id="difficulties">
+            <div id="difficulties-text-container">
+                Choissisez votre difficulté
+            </div>
+            <div>
+                <button id="easy-difficulty" class="fade-in" onclick="setDifficulty(`easy`); main()">Façile</button>
+            </div>
+            <div>
+                <button id="medium-difficulty" class="fade-in" onclick="setDifficulty(`medium`); main()">Moyen</button>
+            </div>
+            <div>
+                <button id="hard-difficulty" class="fade-in" onclick="setDifficulty(`hard`); main()">Difficile</button>
+            </div>
+        </div>
+
+        <div id="start-button-container">
+            <button id="start-button" class="fade-in" onclick="showDifficulties()">Débuter</button>
+        </div>
+
+        <div id="main-container">
+            <div id="instrument-container" class="fade-in">
+                <div id="note-text-container">
+                    <p id="note-text">
+                        display text 
+                    </p>
+                </div>
+                <div id="score-text-container">
+                    <p id="score-text">
+                        score: 0/0
+                    </p>
+                </div>
+                <div id="instrument-image">
+                    <img src="../../Images/flute-fingerings.png" width="640px" draggable="false">
+                </div>
+
+                <!--Keys-->
+                <div>
+                    <img id="thumb-1-image" class="key-image" src="../../Images/Flute Keys/thumb-1.png" draggable="false" onclick="changeNoteImage(`thumb-1`)">
+                    <img id="thumb-A-sharp-image" class="key-image" src="../../Images/Flute Keys/thumb-A-sharp.png" draggable="false" onclick="changeNoteImage(`thumb-A-sharp`)">
+                    <img id="key-1-image" class="key-image" src="../../Images/Flute Keys/key-1.png" draggable="false" onclick="changeNoteImage(`key-1`)">
+                    <img id="key-2-image" class="key-image" src="../../Images/Flute Keys/key-2.png" draggable="false" onclick="changeNoteImage(`key-2`)">
+                    <img id="key-3-image" class="key-image" src="../../Images/Flute Keys/key-3.png" draggable="false" onclick="changeNoteImage(`key-3`)">
+                    <img id="key-4-image" class="key-image" src="../../Images/Flute Keys/key-4.png" draggable="false" onclick="changeNoteImage(`key-4`)">
+                    <img id="key-5-image" class="key-image" src="../../Images/Flute Keys/key-5.png" draggable="false" onclick="changeNoteImage(`key-5`)">
+                    <img id="key-6-image" class="key-image" src="../../Images/Flute Keys/key-6.png" draggable="false" onclick="changeNoteImage(`key-6`)">
+                    <img id="G-sharp-key-image" class="key-image" src="../../Images/Flute Keys/G-sharp-key.png" draggable="false" onclick="changeNoteImage(`G-sharp-key`)">
+                    <img id="A-sharp-trill-key-image" class="key-image" src="../../Images/Flute Keys/A-sharp-trill-key.png" draggable="false" onclick="changeNoteImage(`A-sharp-trill-key`)">
+                    <img id="trill-1-image" class="key-image" src="../../Images/Flute Keys/trill-1.png" draggable="false" onclick="changeNoteImage(`trill-1`)">
+                    <img id="trill-2-image" class="key-image" src="../../Images/Flute Keys/trill-2.png" draggable="false" onclick="changeNoteImage(`trill-2`)">
+                    <img id="D-sharp-key-image" class="key-image" src="../../Images/Flute Keys/D-sharp-key.png" draggable="false" onclick="changeNoteImage(`D-sharp-key`)">
+                    <img id="C-sharp-key-image" class="key-image" src="../../Images/Flute Keys/C-sharp-key.png" draggable="false" onclick="changeNoteImage(`C-sharp-key`)">
+                    <img id="C-key-image" class="key-image" src="../../Images/Flute Keys/C-key.png" draggable="false" onclick="changeNoteImage(`C-key`)">
+
+                </div>
+                <div id="reset-button-container">
+                    <button id="reset-button" onclick="reset()">Réinitialiser</button>
+                </div>
+                <div id="apply-button-container">
+                    <button id="apply-button" onclick="noteCompletedFunction()">Appliquer</button>
+                </div>
+                <div id="finish-button-container">
+                    <button id="finish-button" onclick="finish()">Terminer</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="finish-screen" class="fade-in">
+            <p id="finish-screen-text">Voici vos résultats :</p>
+            <p id="finish-screen-difficulty" class="finish-screen-info">difficulty</p>
+            <p id="finish-screen-percentage" class="finish-screen-info">score</p>
+            <p id="finish-screen-score" class="finish-screen-info">percentage</p>
+            <div id="name-input-container">
+                <input type="text" id="name-input" placeholder="saisir votre nom">
+            </div>
+        </div>
+        <script src="exercise-1.js"></script>
+    </body>
+</html>

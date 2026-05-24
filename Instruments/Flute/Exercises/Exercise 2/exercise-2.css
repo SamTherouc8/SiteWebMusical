@@ -1,0 +1,418 @@
+body {
+    background-image: linear-gradient(to right, rgb(39, 39, 39), rgb(65, 65, 65));
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+#page-text-container {
+    text-align: center;
+}
+
+#page-title {
+    font-size: 120%;
+    font-family:sans-serif;
+    color: white;
+}
+
+#page-description {
+    font-size: 100%;
+    font-family:sans-serif;
+    color: white;
+}
+
+#home-button {
+    position: absolute;
+    top: 10px;
+}
+
+#timer {
+    position: relative;
+    text-align: center;
+    color:aliceblue;
+    font-size: 1.8rem;
+    display: none;
+}
+
+#difficulties {
+    text-align: center;
+    position: relative;
+    top: 30px;
+    width: 600px;
+    display: none;
+}
+
+#difficulties-text-container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    color: rgba(202, 202, 202, 0.416);
+}
+
+#easy-difficulty {
+    position: relative;
+    width: 150px;
+    height: 70px;
+    top: 2vh;
+    border-radius: 40%;
+    background-color: rgb(0, 255, 98);
+}
+
+#easy-difficulty:hover {
+    background-color: rgb(0, 151, 58);
+    transition: background-color 0.2s ease;
+}
+
+#medium-difficulty {
+    position: relative;
+    width: 150px;
+    height: 70px;
+    top: 4vh;
+    border-radius: 40%;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(242, 255, 0);
+}
+
+#medium-difficulty:hover {
+    background-color: rgb(142, 149, 0);
+    transition: background-color 0.2s ease;
+}
+
+
+#hard-difficulty {
+    position: relative;
+    width: 150px;
+    height: 70px;
+    top: 6vh;
+    border-radius: 40%;
+    background-color: rgb(255, 0, 0);
+}
+
+#hard-difficulty:hover {
+    background-color: rgb(151, 2, 2);
+    transition: background-color 0.2s ease;
+}
+
+#very-hard-difficulty {
+    position: relative;
+    width: 150px;
+    height: 70px;
+    top: 8vh;
+    border-radius: 40%;
+    background-color: rgb(148, 0, 174);
+}
+
+#very-hard-difficulty:hover {
+    background-color: rgb(125, 0, 147);
+    transition: background-color 0.2s ease;
+}
+
+
+#start-button-container {
+    text-align: center;
+}
+
+#start-button {
+    height: 90px;
+    width: 200px;
+    background-color: rgb(99, 99, 99);
+    border-radius: 13px;
+    font-size:x-large;
+}
+
+#start-button:hover {
+    background-color:rgb(80, 80, 80);
+    transition: background-color 0.2s ease;
+}
+
+#main-container {
+    display: none;
+    width: 100vw;
+}
+
+#instrument-container {
+    position: absolute;
+    height: 710px;
+    width:268px;
+    top: 210px;
+    overflow: hidden;
+    display: none;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom left, #00ccff, #0037ff)
+}
+
+#note-text-container {
+    text-align: center;
+    height: 45px;
+}
+
+#note-text {
+    font-size: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+}
+
+#score-text-container {
+    text-align: center;
+    height: 0px;
+}
+
+#score-text {
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+    color: rgb(0, 0, 0);
+}
+
+
+#instrument-image {
+    position: relative;
+    left: 17px;
+    top: 19px;
+}
+
+.key-image {
+    position: absolute;
+}
+
+#octave-key-image {
+    left: 51px;
+    top: 229px;
+}
+
+#thumb-key-image {
+    left: 48px;
+    top: 273px;
+}
+
+#key-1-image {
+    left: 96px;
+    top: 256px;
+}
+
+#key-2-image {
+    left: 96px;
+    top: 286px;
+}
+
+#key-3-image {
+    left: 98px;
+    top: 316px;
+}
+
+#key-4-image {
+    left: 96px;
+    top: 396px;
+}
+
+#key-5-image {
+    left: 96px;
+    top: 426px;
+}
+
+#key-6-image {
+    left: 96px;
+    top: 456px;
+}
+
+#A-key-image {
+    left: 100.5px;
+    top: 231px;
+}
+
+#G-sharp-key-image {
+    left: 121px;
+    top: 234px;
+}
+
+#D-sharp-key-image {
+    left: 101px;
+    top: 307px;
+}
+
+#C-sharp-key-image {
+    left: 107px;
+    top: 331px;
+}
+
+#B-key-image {
+    left: 80px;
+    top: 446px;
+}
+
+#side-1-image {
+    left: 66px;
+    top: 396px;
+}
+
+#side-2-image {
+    left: 66px;
+    top: 386px;
+}
+
+#side-3-image {
+    left: 66px;
+    top: 376px;
+}
+
+#side-4-image {
+    left: 66px;
+    top: 366px;
+}
+
+#F-left-key-image {
+    left: 127px;
+    top: 342px;
+}
+
+#F-sharp-left-key-image {
+    left: 132px;
+    top: 353px;
+}
+
+#E-left-key-image {
+    left: 115px;
+    top: 352px;
+}
+
+#F-right-key-image {
+    left: 96px;
+    top: 490px;
+}
+
+#F-sharp-right-key-image {
+    left: 82px;
+    top: 489px;
+}
+
+#E-right-key-image {
+    left: 80px;
+    top: 504px;
+}
+
+#G-sharp-right-key-image {
+    left: 94px;
+    top: 505px;
+}
+
+
+#note-choice-container {
+    position: relative;
+    left: 59px;
+    top: 20px;
+    height: 25px;
+    width: 200px;
+}
+
+#note-choice {
+    height: 25px;
+    width: 150px;
+}
+
+#apply-button-container {
+    height:11px;
+    width: 16px;
+    border-radius: 13px;
+    font-size:x-large;
+    position: absolute;
+    top: 625px;
+    left: 97px;
+}
+
+
+#apply-button {
+    text-align: center;
+    border-radius: 30%;
+    border-color: rgb(0, 0, 0);
+    border-width: 1%;
+    background-color: rgb(144, 144, 144);
+}
+
+#apply-button:hover {
+    background-color: rgb(98, 98, 98);
+    transition: background-color 0.2s ease;
+}
+
+#finish-button-container {
+    height:11px;
+    width: 16vw;
+    border-radius: 13px;
+    font-size:x-large;
+    position: absolute;
+    display: none;
+    top: 660px;
+    left: 71px;
+}   
+
+#finish-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    border-radius: 30%;
+    border-color: rgb(0, 0, 0);
+    border-width: 1%;
+    background-color: rgb(144, 144, 144);
+    font-size: 120%;
+}
+
+#finish-button:hover {
+    background-color: rgb(98, 98, 98);
+    transition: background-color 0.2s ease;
+}
+
+
+#finish-screen {
+    position: absolute;
+    height: 680px;
+    width:268px;
+    top: 210px;
+    overflow: hidden;
+    display: none;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom left, #00aeff, rgb(0, 0, 0));
+}
+
+.finish-screen-info {
+    position: relative;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#finish-screen-text {
+    text-align: center;
+    font-size: 130%;
+}
+
+#name-input {
+    position: relative;
+    text-align: center;
+    margin : 0 auto;
+}
+
+#name-input-container {
+    position: relative;
+    margin : 0 auto;
+    left: 45px;
+}
+
+
