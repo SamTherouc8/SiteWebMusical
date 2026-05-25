@@ -3,61 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="exercise-2.css">
-        <link rel="stylesheet" href="../buttons.css">
-        <title>Exercice 2</title>
+        <link rel="stylesheet" href="exercise-3.css">
+        <title>Revue</title>
     </head>
     <body>
         <div id="page-text-container">
             <div id="page-title">
-                <h1>Exercice 2</h1>
+                <h1>Revue des notes</h1>
             </div>
             <div id="page-description">
-                <h2>Indiquer la note à partir du doigté</h2>
+                <h2>Révision des notes musicales</h2>
             </div>
         </div>
         
         <div id="home-button">
-            <a href="../../../../index.html"><img src="../../../../Images/home.png" draggable="false" height="40"></a>
+            <a href="../../../../index.html">
+                <img src="../../../../Images/home.png" draggable="false" height="40">
+            </a>
         </div>
 
-        <div>
-            <div id="timer">
-                00:00:00
-            </div>
-        </div>
-
-        <div id="difficulties">
-            <div id="difficulties-text-container">
-                Choissisez votre difficulté
-            </div>
-            <div>
-                <button id="easy-difficulty" class="fade-in" onclick="setDifficulty(`easy`); main()">Façile</button>
-            </div>
-            <div>
-                <button id="medium-difficulty" class="fade-in" onclick="setDifficulty(`medium`); main()">Moyen</button>
-            </div>
-            <div>
-                <button id="hard-difficulty" class="fade-in" onclick="setDifficulty(`hard`); main()">Difficile</button>
-            </div>
-        </div>
-
-        <div id="start-button-container">
-            <button id="start-button" class="fade-in" onclick="showDifficulties()">Débuter</button>
-        </div>
 
         <div id="main-container">
             <div id="instrument-container" class="fade-in">
                 <div id="note-text-container">
                     <p id="note-text">
-                        Quelle note représente ce doigté?
+                        Quel note voulez-vous réviser?
                     </p>
                 </div>
-                <div id="score-text-container">
-                    <p id="score-text">
-                        score: 0/0
-                    </p>
-                </div>
+
                 <div id="instrument-image">
                     <img src="../../Images/saxophone-image.png" draggable="false" height="500px">
                 </div>
@@ -185,28 +158,13 @@
                     </select>
                 </div>
                 <div id="apply-button-container">
-                    <button id="apply-button" onclick="noteCompletedFunction()">Vérifier</button>
-                </div>
-                <div id="finish-button-container">
-                    <button id="finish-button" onclick="finish()">Terminer</button>
+                    <button id="apply-button" onclick="manageInput()">Vérifier</button>
                 </div>
             </div>
         </div>
 
-        <div id="finish-screen" class="fade-in">
-            <p id="finish-screen-text">Voici vos résultats :</p>
-            <p id="finish-screen-difficulty" class="finish-screen-info">difficulty</p>
-            <p id="finish-screen-percentage" class="finish-screen-info">score</p>
-            <p id="finish-screen-score" class="finish-screen-info">percentage</p>
-            <div id="name-input-container">
-                <input type="text" id="name-input" placeholder="saisir votre nom">
-            </div>
-        </div>
 
-        <div id="finish-button-container">
-            <button id="finish-button" onclick="finish()">Terminer</button>
-        </div>
 
-        <script src="exercise-2.js"></script>
+        <script src="exercise-3.js"></script>
     </body>
 </html>
