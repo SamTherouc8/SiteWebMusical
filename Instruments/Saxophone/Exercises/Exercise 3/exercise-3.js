@@ -64,10 +64,10 @@ function createNoteText(noteName) {
     originalNoteName = noteName
     if(noteName.includes('alt')) {
         noteName = noteName.replace(`alt`, ``)
-        noteText = `dté alternatif de`
+        noteText = `doigté alternatif de`
     }
     else{
-        noteText = `dté habituel de`
+        noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')) {
