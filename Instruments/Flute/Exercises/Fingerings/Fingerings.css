@@ -48,21 +48,20 @@ body {
 
 #instrument-container {
     position: absolute;
-    height: 660px;
-    width:268px;
+    height: 370px;
+    width: 680px;
     top: 210px;
     overflow: hidden;
-    display: inline;
     left: 50%;
     transform: translate(-50%, 0%);
     border-radius: 15px;
-    background-image: linear-gradient(to bottom left, #60dfff, #0037ff)
+    background-image: linear-gradient(to bottom left, #9900ff, #ff00ff)
 }
 
 #instrument-image {
     position: relative;
-    left: 17px;
-    top: 19px;
+    left: 20px;
+    top: 30px;
 }
 
 #note-text-container {
@@ -84,131 +83,86 @@ body {
     position: absolute;
 }
 
-#octave-key-image {
-    left: 51px;
-    top: 229px;
+#thumb-1-image {
+    left: 190px;
+    top: 250px;
 }
 
-#thumb-key-image {
-    left: 48px;
-    top: 273px;
+#thumb-A-sharp-image {
+    left: 161px;
+    top: 244px;
 }
 
 #key-1-image {
-    left: 96px;
-    top: 256px;
+    left: 157px;
+    top: 202px;
 }
 
 #key-2-image {
-    left: 96px;
-    top: 286px;
+    left: 206px;
+    top: 202px;
 }
 
 #key-3-image {
-    left: 98px;
-    top: 316px;
+    left: 255px;
+    top: 202px;
 }
 
 #key-4-image {
-    left: 96px;
-    top: 396px;
+    left: 330px;
+    top: 202px;
 }
 
 #key-5-image {
-    left: 96px;
-    top: 426px;
+    left: 379px;
+    top: 202px;
 }
 
 #key-6-image {
-    left: 96px;
-    top: 456px;
-}
-
-#A-key-image {
-    left: 100.5px;
-    top: 231px;
+    left: 428px;
+    top: 202px;
 }
 
 #G-sharp-key-image {
-    left: 121px;
-    top: 234px;
+    left: 265px;
+    top: 166px;
+}
+
+#A-sharp-trill-key-image {
+    left: 323px;
+    top: 243px;
+}
+
+#trill-1-image {
+    left: 366px;
+    top: 235px;
+}
+
+#trill-2-image {
+    left: 415px;
+    top: 235px;
 }
 
 #D-sharp-key-image {
-    left: 101px;
-    top: 307px;
+    left: 475px;
+    top: 196px;
 }
 
 #C-sharp-key-image {
-    left: 107px;
-    top: 331px;
+    left: 502px;
+    top: 222px;
 }
 
-#B-key-image {
-    left: 80px;
-    top: 446px;
-}
-
-#side-1-image {
-    left: 66px;
-    top: 396px;
-}
-
-#side-2-image {
-    left: 66px;
-    top: 386px;
-}
-
-#side-3-image {
-    left: 66px;
-    top: 376px;
-}
-
-#side-4-image {
-    left: 66px;
-    top: 366px;
-}
-
-#F-left-key-image {
-    left: 127px;
-    top: 342px;
-}
-
-#F-sharp-left-key-image {
-    left: 132px;
-    top: 353px;
-}
-
-#E-left-key-image {
-    left: 115px;
-    top: 352px;
-}
-
-#F-right-key-image {
-    left: 96px;
-    top: 490px;
-}
-
-#F-sharp-right-key-image {
-    left: 82px;
-    top: 489px;
-}
-
-#E-right-key-image {
-    left: 80px;
-    top: 504px;
-}
-
-#G-sharp-right-key-image {
-    left: 94px;
-    top: 505px;
+#C-key-image {
+    left: 502px;
+    top: 210px;
 }
 
 
 #note-choice-container {
     position: relative;
-    left: 59px;
-    top: 27px;
+    left: 264px;
+    top: 43px;
     height: 25px;
     width: 200px;
 }
@@ -224,8 +178,8 @@ body {
     border-radius: 13px;
     font-size:x-large;
     position: absolute;
-    top: 625px;
-    left: 105px;
+    top: 333px;
+    left: 309px;
 }
 
 #apply-button {

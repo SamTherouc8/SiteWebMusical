@@ -1,65 +1,104 @@
-const notesDictVeryHard = {
-    "E3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "E3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
-    "F3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "F3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-left-key"],
-    "F3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "F3-sharp-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-sharp-right-key"],
-    "G3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "G3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "A3": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "A3-sharp": ["thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "B3": ["thumb-key", "key-1", "key-2", "key-3", "key-5"],
-    "B3-alt": ["thumb-key", "key-1", "key-2", "key-3", "key-4", "B-key"],
-    "C4": ["thumb-key", "key-1", "key-2", "key-3"],
-    "C4-sharp": ["thumb-key", "key-1", "key-2", "key-3", "C-sharp-key"],
-    "D4": ["thumb-key", "key-1", "key-2"],
-    "D4-sharp": ["thumb-key", "key-1", "key-2", "side-1"],
-    "D4-sharp-alt": ["thumb-key", "key-1", "key-2", "D-sharp-key"],
-    "E4": ["thumb-key", "key-1"],
-    "F4": ["thumb-key"],
-    "F4-sharp": ["key-1"],
-    "F4-sharp-alt": ["thumb-key", "side-1", "side-2"],
-    "G4": [],
-    "G4-sharp": ["G-sharp-key"],
-    "A4": ["A-key"],
-    "A4-sharp": ["octave-key", "A-key"],
-    "A4-sharp-alt": ["A-key", "side-3"],
+var notesDictHard = {
+    "C4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key", "C-key"], 
+    "C4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key"], 
+    "D4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F4-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F4-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G4": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A4": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A4-sharp-alt": ["thumb-A-sharp", "key-1", "D-sharp-key"],
+    "A4-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B4": ["thumb-1", "key-1", "D-sharp-key"],
 
-    "B4": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-left-key", "F-right-key"],
-    "B4-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "E-right-key"],
-    "C5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-right-key"],
-    "C5-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-left-key"],
-    "C5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6",  "F-sharp-left-key", "F-right-key"],
-    "C5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "F-sharp-right-key"],
-    "D5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
-    "D5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "E5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5"],
-    "F5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4"],
-    "F5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-5"],
-    "F5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "B-key"],
-    "G5": ["octave-key", "thumb-key", "key-1", "key-2", "key-3"],
-    "G5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "C-sharp-key"],
-    "A5": ["octave-key", "thumb-key", "key-1", "key-2"],
-    "A5-sharp": ["octave-key", "thumb-key", "key-1", "key-2", "side-1"],
-    "A5-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "D-sharp-key"],
-    "B5": ["octave-key", "thumb-key", "key-1"],
-    "C6": ["octave-key", "thumb-key"],
+    "C5": ["key-1", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F5-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F5-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A5-sharp-alt": ["thumb-A-sharp", "key-1", "D-sharp-key"],
+    "A5-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B5": ["thumb-1", "key-1", "D-sharp-key"],
 
-    "C6-sharp": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "key-5"],
-    "C6-sharp-alt": ["octave-key", "thumb-key", "side-1", "side-2"],
-    "D6": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "G-sharp-right-key"],
-    "D6-alt": ["octave-key", "thumb-key", "side-3"],
-    "D6-sharp": ["octave-key", "thumb-key", "key-2", "key-3", "key-4", "B-key", "G-sharp-right-key"],
-    "D6-sharp-alt": ["octave-key", "thumb-key", "key-2", "key-3", "key-5", "G-sharp-right-key"],
-    "E6": ["octave-key", "thumb-key", "key-2", "key-3", "G-sharp-right-key"],
-    "F6": ["octave-key", "thumb-key", "key-2", "key-3", "G-sharp-right-key"],
-    "F6-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "C-sharp-key", "key-4", "key-5", "key-6"],
-    "F6-sharp": ["octave-key", "thumb-key", "key-2", "G-sharp-right-key"],
-    "F6-sharp-alt": ["octave-key", "thumb-key", "key-1", "key-2", "key-4", "key-5", "key-6", "G-sharp-right-key"],
-    "G6": ["octave-key", "thumb-key", "key-2", "key-4", "key-5", "G-sharp-right-key"],
-    "G6-alt": ["octave-key", "key-2", "key-3", "key-4", "G-sharp-right-key"]
+    "C6": ["key-1", "D-sharp-key"],
+    "C6-sharp": ["D-sharp-key"],
+    "D6": ["thumb-1", "key-2", "key-3", "D-sharp-key"],
+    "D6-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E6": ["thumb-1", "key-1", "key-2", "key-4", "key-5", "D-sharp-key"],
+    "F6": ["thumb-1", "key-1", "key-3", "key-4", "D-sharp-key"],
+    "F6-sharp": ["thumb-1", "key-1", "key-3", "key-6", "D-sharp-key"],
+    "G6": ["key-1", "key-2", "key-3", "D-sharp-key"],
+    "G6-sharp": ["key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A6": ["thumb-1", "key-2", "key-4", "D-sharp-key"],
+    "A6-sharp": ["thumb-1", "key-4", "trill-1"],
+    "B6": ["thumb-1", "key-1", "key-3", "trill-2"],
+
+    "C7": ["key-1", "key-2", "key-3", "G-sharp-key", "key-4"]
+}
+
+var notesDictMedium = {
+    "C4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key", "C-key"],
+    "C4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "C-sharp-key"], 
+    "D4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F4-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F4-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G4": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A4": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A4-sharp-alt": ["thumb-A-sharp", "key-1", "D-sharp-key"],
+    "A4-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B4": ["thumb-1", "key-1", "D-sharp-key"],
+
+    "C5": ["key-1", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "F5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "key-6", "D-sharp-key"],
+    "F5-sharp-alt": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "F5-sharp-trill": ["thumb-1", "key-1", "key-2", "key-3", "key-5", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G5-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "A5-sharp-alt": ["thumb-A-sharp", "key-1", "D-sharp-key"],
+    "A5-sharp-trill": ["thumb-1", "key-1", "A-sharp-trill-key", "D-sharp-key"],
+    "B5": ["thumb-1", "key-1", "D-sharp-key"],
 };
+
+var notesDictEasy = {
+    "A4-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+    "C5-sharp": ["D-sharp-key"],
+    "D5": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6"],
+    "D5-sharp": ["thumb-1", "key-2", "key-3", "key-4", "key-5", "key-6", "D-sharp-key"],
+    "E4": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "key-5", "D-sharp-key"],
+    "F5": ["thumb-1", "key-1", "key-2", "key-3", "key-4", "D-sharp-key"],
+    "G5": ["thumb-1", "key-1", "key-2", "key-3", "D-sharp-key"],
+    "G4-sharp": ["thumb-1", "key-1", "key-2", "key-3", "G-sharp-key", "D-sharp-key"],
+    "A5": ["thumb-1", "key-1", "key-2", "D-sharp-key"],
+    "A5-sharp": ["thumb-1", "key-1", "key-4", "D-sharp-key"],
+};
+
+
 
 const notesName = {
     "C": "Do/(Si♯)",
@@ -76,12 +115,11 @@ const notesName = {
     "B": "(Do♭)/Si",
 };
 
-const keysList = ["octave-key", "thumb-key", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "A-key",
-    "G-sharp-key", "D-sharp-key", "C-sharp-key", "B-key", "side-1", "side-2", "side-3", "side-4", "F-left-key",
-    "F-sharp-left-key", "E-left-key", "F-right-key", "F-sharp-right-key", "E-right-key", "G-sharp-right-key"]
+var keysList = ["thumb-1", "thumb-A-sharp", "key-1", "key-2", "key-3", "key-4", "key-5", "key-6", "G-sharp-key", "A-sharp-trill-key", "trill-1", "trill-2", "D-sharp-key", "C-sharp-key", "C-key"]
+
 
 function changeKeyUrl(id) {
-    document.getElementById(id).scr = `../../Images/Clarinet Keys/activated/${id.replace(`-image`, ``)}.png`;
+    document.getElementById(id).scr = `../../Images/Flute Keys/activated/${id.replace(`-image`, ``)}.png`;
 }
 
 
@@ -92,25 +130,24 @@ function createNoteText(noteName) {
         noteName = noteName.replace(`-alt`, ``) 
         originalNoteName = originalNoteName.replace(`-alt`, ``) 
         noteText = `doigté alternatif de` 
-    }
-    else{
+    } else if(noteName.includes('-trill')) {
+        noteName = noteName.replace(`-trill`, ``) 
+        originalNoteName = originalNoteName.replace(`-trill`, ``) 
+        noteText = `doigté trille de` 
+    } else{
         noteText = `doigté habituel de`
     }
 
     if(noteName.includes('3')) {
         noteText = noteText + ` ${noteName} 3 (très grave)`
-    }
-
-    else if(noteName.includes('4')) {
+    } else if(noteName.includes('4')) {
         noteText = noteText + ` ${noteName} 4 (grave)`
-    }
-
-    else if(noteName.includes('5')) {
+    } else if(noteName.includes('5')) {
         noteText = noteText + ` ${noteName} 5 (aigu)` 
-    }
-
-    else if(noteName.includes('6')) {
+    } else if(noteName.includes('6')) {
         noteText = noteText + ` ${noteName} 6 (très aigu)`
+    } else if(noteName.includes('7')) {
+        noteText = noteText + ` ${noteName} 7 (extrêmement aigu)`
     }
 
     noteName = notesName[noteName.replace(/[0-9]/, ``)] 
@@ -124,7 +161,7 @@ function setList() {
     notesList.innerHTML = "";
 
     const optionArray = []
-    for (const note of Object.keys(notesDictVeryHard)) {
+    for (const note of Object.keys(notesDictHard)) {
         const option = `${note}|${createNoteText(note)}`
         optionArray.push(option)
     }
@@ -144,7 +181,7 @@ function manageInput() {
     reset()
     const selectedNote = document.getElementById(`note-choice`);
     const noteName = selectedNote.value;
-    const noteArray = notesDictVeryHard[noteName];
+    const noteArray = notesDictHard[noteName];
     
     changeImage(noteArray);
 }
@@ -153,14 +190,14 @@ function manageInput() {
 // This function activates the keys needing to be activated to display the fingering.
 function changeImage(noteArray) {
     for (const note of noteArray) {
-        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/activated/${note}.png`;
+        document.getElementById(`${note}-image`).src=`../../Images/Flute Keys/activated/${note}.png`;
     }
 }
 
 // This function deactivates all the activated keys.
 function reset() {
     for (const note of keysList) {
-        document.getElementById(`${note}-image`).src=`../../Images/Clarinet Keys/${note}.png`;
+        document.getElementById(`${note}-image`).src=`../../Images/Flute Keys/${note}.png`;
     }
 }
 
